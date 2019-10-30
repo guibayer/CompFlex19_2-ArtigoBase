@@ -1,0 +1,1025 @@
+\documentclass[12pt]{article}
+\usepackage{sbc-template}
+\usepackage{url}
+%\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+\usepackage{epsfig,amsfonts,amsthm,amssymb,latexsym,amsmath}
+\usepackage[]{graphicx}
+\usepackage[options]{diagrams}
+\usepackage{mdwtab}
+
+%\renewcommand{\baselinestretch}{1.16}
+
+%\textwidth 12.2cm
+%\textheight 19.5cm
+%\oddsidemargin=0.7 true in
+%\evensidemargin=0.7 true in
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[proposition]{proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{proposition}
+\newtheorem{proposition}[theorem]{Proposition}
+
+
+\newcommand{\lra}{\hspace{-0.05cm}\rightarrow\hspace{-0.05cm}}
+\newcommand{\raw}{\rightarrow}
+\newcommand{\II}{\mathbb{I} }
+\newcommand{\UU}{\mathbb{U} }
+%\newcommand{\RR}{\Bbb{R} }
+\newcommand{\NN}{\mathbb{N} }
+\newcommand{\TT}{\mathbb{T} }
+\newcommand{\Ss}{\mathbb{S} }
+\newcommand{\RR}{\Re }
+
+\newcommand{\B}{{\tt\symbol{92}}}
+\newcommand{\til}{{\tt\symbol{126}}}
+\newcommand{\chap}{{\tt\symbol{94}}}
+\newcommand{\agud}{{\tt\symbol{13}}}
+\newcommand{\crav}{{\tt\symbol{18}}}
+
+
+\title{Canonical representation of the Yager's classes of fuzzy implications}
+%[insert here the Running title of your paper]
+\vspace{5pt}
+
+
+
+\author{\scriptsize R. H. S. Reiser$^{1}$ \  B. R. C. Bedregal$^{2}$ \ R. H. N. Santiago$^{2}$ \ M. D. Amaral$^{3}$
+}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\vspace{-20pt}
+\begin{center}
+{\footnotesize $^1$UFPEL/CDTEC/PPGC, 354, 96001-970 Pelotas, RS, Brazil \\
+$^2$UFRN/DIMAP/PPGC, 1524, 59072-970 Natal, RN, Brazil \\
+$^1$UCPEL/CP/PPGINF, 402, 96010-000  Pelotas, RS, Brazil \\
+E-mails: reiser@inf.ufpel.edu.br / \{bedregal, regivan\}@dimap.ufrn.br  / marilia@ucpel.tche.br
+}\end{center}
+
+\hrule
+
+\begin{abstract}
+The aim of this work is to study an interval extension of the Yager's classes of implications based on the canonical constructor. Focused on the Yager implication, such construction preserves similar and extra properties of fuzzy implications, also aggregating the correctness and optimality criteria.
+
+\end{abstract}
+
+\medskip
+\noindent
+\subjclass{\footnotesize {\bf Mathematical subject classification:}
+Primary: 06B10; Secondary: 06D05.}
+
+\medskip
+\noindent
+\keywords{\footnotesize {\bf Keywords:} interval-valued fuzzy logic, interval-valued fuzzy implications, Yager's classes of implications, f-generated implications, g-generated implications.}
+\medskip
+
+\hrule
+
+\section{Introduction}\label{sec:1}
+
+The narrow sense of Interval Valued Fuzzy Logic (IVFL)~\cite{Zad75}, receives independent contributions from various research groups, aiming at the treatment of uncertainty not only about the membership functions but also about the membership degree of relevance. Thus, the notion of ``precise number", representing a membership degree, is extended to an interval value carrying its uncertainty in the unity interval.
+According to R. Moore and W. Lodwick~\cite{Lod02}, basis on interval valued fuzzy set theory, IVFL may be thought
+as arising from the need of a more complete and inclusive logical model of uncertainty, expressing computations with real numbers and their interrelations in Scott and Moore topologies. Such approach emphasizes the synergism between interval analysis (as developed by R. E. Moore, see~\cite{Moo79, Moo03,keafort}) and fuzzy set theory (as conceived by \cite{Zad65}). See, e.g., fuzzy arithmetic, interval arithmetic on alpha-cuts, the extension principle and interval representability of fuzzy connectives. Focused on the latter, we have considered the canonical representation to interpret the truth degree of a fuzzy implication related to conditional rule in inference systems based on fuzzy logic, modeling all the (lack of) knowledge about the value of a variable. So, by the best interval representation of a fuzzy implication, the correct result of such variable also aggregates the optimality criteria\cite{Hic01}.
+
+ This paper study interval Yager's classes implications, introducing the concepts of interval $f$ and $g$-generator implications. Focusing on the study of the canonical representation of the Yager implication, a characterization based on interval $f$- and $g$-generator is obtained. We also prove that an interval Yager implication satisfies similar and extra properties of fuzzy implications. For that, the paper is organized as follows: The main concepts of interval representations of real functions and related fuzzy connectives are discussed in Sects.~\ref{sec-3} and~\ref{sec-4}, respectively. Fuzzy implications, their several properties and main classes are considered in Sect.~\ref{sec-5imp}. Section~\ref{sec-6} introduces the canonical representation of the Yager's classes implications presenting a discussion about the interval extension of the related properties and results, followed by the Conclusion.
+
+\section{Interval representations}\label{sec-3}
+
+%In interval mathematics, the principle of correctness is the assurance that an interval output contains all possible outcomes of the corresponding punctual data for an interval input in a computation of an algorithm. In addition, the optimality principle determines that the smallest interval output satisfies the accuracy. Thus, the correctness and optimality are the minimum and the ideal condition, respectively, to be satisfied by interval computations.
+%
+%The main purpose of interval approach introduced in~\cite{BT06a,BT06b} has been to consider the interval fuzzy structures as those which are correct to perform inferences and analyze criteria which ensure their optimality in fuzzy systems. To this effect, the study of the main classes of interval valued fuzzy implications is considered, analyzing the satisfaction of properties similar to the respective classes of fuzzy implications.
+
+Consider $\II_{[a,b]} = \{[x,y] \, | \, a\leq x\leq y\leq b \mbox{\, and \,} a,b \in \Re\}$ as the family of intervals  of the extended real number set. The projections $l,r:\mathbb{I}_{[a,b]}\hspace{-0.05cm}\rightarrow\hspace{-0.05cm} [a,b]$ are defined by $l([x_1,x_2])=x_1$ and $r([x_1,x_2])=x_2$,
+respectively. For $X\in \mathbb{I}_{[a,b]}$,  $l(X)$ and $r(X)$ are also denoted by $\underline{X}$ and $\overline{X}$,
+respectively.  
+
+The binary operations \mbox{ $\vee, \wedge: {\II_{[a,b]}}^2 \hspace{-0.05cm}\rightarrow\hspace{-0.05cm} \II_{[a,b]}$} are  respectively given by
+\begin{eqnarray}
+X_1 \wedge X_2 \hspace{-0.1cm}=\hspace{-0.1cm} [\min\{\underline{X_1},\underline{X_2}\},\hspace{-0.05cm} \min\{\overline{X_1},\overline{X_2}\}] \\
+X_1\vee X_2 \hspace{-0.1cm}=\hspace{-0.1cm} [\max\{\underline{X_1},\underline{X_2}\}, \max\{\overline{X_1},\overline{X_2}\}].
+\end{eqnarray}
+For $n$-uplas $(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(X_1, \ldots, X_n) \in {\mathbb{I}_{[a,b]}}^n$, it holds that the subsets are in $[a,b]^n$: \\($i$) $l(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\underline{X_1}, \ldots, \underline{X_n})$ and $r(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\overline{X_1}, \ldots, \overline{X_n})$; \\($ii$) $\ast(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}[\ast(\underline{X_1}, \ldots, \underline{X_n}), \ast(\overline{X_1}, \ldots, \overline{X_n})]$, when $\ast \in \{\vee, \wedge\}$.
+When $F\hspace{-0.1cm}:\hspace{-0.1cm}{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$, the functions $\underline{F},\overline{F}\hspace{-0.05cm}:\hspace{-0.05cm}[a,b]^n\lra [a,b]$ are respectively given by \begin{eqnarray}
+\underline{F}(x_1,\ldots,x_n) =l(F([x_1,x_1],\ldots,[x_n,x_n]))\\
+\overline{F}(x_1,\ldots,x_n)=r(F([x_1,x_1],\ldots,[x_n,x_n]))
+\end{eqnarray}
+\subsection{Partial Orders on $\mathbb{I}_{[a,b]}$} (Diogo)
+Consider the partial orders on the unit interval $U=[0,1]$:\\
+\indent \textbf{O1} \emph{Inclusion order}: $X\subseteq Y$ iff
+$\underline{X}\geq \underline{Y}$ and $\overline{X}\leq
+\overline{Y}$;\\
+%
+\indent \textbf{O2} \emph{Product order}: $X\leq Y$ iff $\underline{X}\leq
+\underline{Y}$ and $\overline{X}\leq \overline{Y}$.\\
+%
+\indent In addition, in the sense of domain theory, we also consider the induced-product relation: $X\hspace{-0.05cm}\lll\hspace{-0.05cm}Y$ iff $\underline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\underline{Y} \wedge \overline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\overline{Y}$,$\forall X,Y\hspace{-0.05cm}\in\hspace{-0.05cm}\II_U$.
+So, by~\cite[Def.~1]{BDSR11}, an interval function $F:{\II_U}^2 \rightarrow \II_U$ is $\lll$-increasing ($\lll$-decreasing) function  when it is an increasing (decreasing) function w.r.t both the product order and the induced-product order.
+
+\subsection{Representability on $\mathbb{I}_{[a,b]}$} (Eduardo) 
+
+An interval $X \in \II_{[a,b]}$ is said to be an interval representation of a real number $\alpha$ if $\alpha \in X$.
+Considering two interval representations $X$ and $Y$ of a real number $\alpha$,  $X$ is a better representation of
+$\alpha$ than $Y$ if $X$ is narrower than $Y$, that is,  if $X\subseteq Y$.
+
+\begin{definition}~\cite[Section 1]{SBA06}\label{d1} A function $F:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[c,d]}$ is an \textbf{interval
+representation} of a function $f:[a,b]^n\lra [c,d]$ if, for each
+$\vec{X}= (X_1, \ldots, X_n)\in {\mathbb{I}_{a,b}}^n$ and $\vec{x}\in \vec{X}$, $f(\vec{x})\in
+F(\vec{X})$.
+\end{definition}
+
+So, an interval function $F:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$ is a \emph{better
+interval representation} of $f:[a,b]^n\lra [a,b]$ than $G:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$, denoted by $G\hspace{-0.05cm}\sqsubseteq\hspace{-0.05cm}
+F$, if for each $\vec{X}\hspace{-0.1cm}\in\hspace{-0.1cm}{\mathbb{I}_{[a,b]}}^n$, the inclusion $F(\vec{X})\hspace{-0.1cm}\subseteq\hspace{-0.1cm}G(\vec{X})$ holds.
+
+\begin{definition}~\cite[Section 2]{SBA06}\label{d2}  The {\bf best interval representation} ({\bf canonical representation}) of a real function $f:[a,b]^n\lra [a,b]$, is the interval function
+$\widehat{f}:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$ defined by\vspace{-0.2cm}
+\begin{equation}\label{eq-br}\vspace{-0.1cm}
+\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}[\inf \{f(\vec{x})|\vec{x} \in \vec{X}\}, \sup \{f(\vec{x})|\vec{x} \in \vec{X}\}].
+\end{equation}
+\end{definition}
+
+The interval function $\widehat{f}$ is well defined and for any other interval representation $F$ of $f$, $F\sqsubseteq
+\widehat{f}$, providing a narrower interval than any other interval representation of
+$f$. Thus, $\widehat{f}$ has the \emph{optimality property} of interval algorithms mentioned by Hickey et
+al.~\cite{Hic01}, when it is seen as an algorithm to compute a real function $f$.
+
+By~\cite[Sect.~2.2]{SBA06}, for an interval function $f:[a,b]^n \lra [a,b]$, the following statements are equivalent: (i) $f$ is continuous; (ii) $\widehat{f}$ is Scott continuous; (iii)
+$\widehat{f}$ is Moore continuous~\cite{SBA06}. So, when $f$ is continuous in usual sense,
+$\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}\{f(\vec{x})|\vec{x}\in
+\vec{X}\}\hspace{-0.05cm}=\hspace{-0.05cm}f(\vec{X})$, $\forall \vec{X}\hspace{-0.05cm}\in\hspace{-0.05cm}{\mathbb{I}_{[a,b]}}^n$.
+
+
+%Moore and Scott continuities  are the two most common continuity
+%notions used in interval mathematics.
+
+\section{Interval fuzzy connectives}\label{sec-4}
+
+ An interval fuzzy connective may be considered as an interval representation of a fuzzy connective~\cite{BT06b}. This generalization fits the fuzzy principle, which means that the interval degree of membership may be thought as an approximation of the exact degree.
+
+\subsection{Interval-valued Aggregations on $\UU$(Guilherme)}
+
+\begin{definition}~\cite[Definition 5.1]{BT06b} \label{def-intAggregation}
+
+A function  $\mathbb{T}(\mathbb{S}):\UU^2 \rightarrow \UU$ is an \textbf{interval t-norm}  (\textbf{t-conorm}) if it is commutative, associative, monotonic w.r.t. both, the product and inclusion orders\footnote{Such notion of monotonicity of t-(co)norms w.r.t an inclusion order is equivalent to the notion of t-representable t-(co)norms, as presented in~\cite{Des08}.}, and has $\mathbf{1}=[1,1]$ ($\mathbf{0}=[0,0]$) as the neutral element.
+\end{definition}
+
+\subsubsection{Interval t-norms and interval t-conorms}\label{subsec-3b} 
+Notice that  a t-conorm (t-norm) is a function $S:U^2 \rightarrow U$ which is commutative,  associative, monotonic and has $0$ ($1$) as neutral element. In the following, denoting $\II_{U}=\mathbb{U}$, an extension of the t-conorm (t-norm) notion is considered, following the same approach introduced in~\cite{BT06b}.
+
+\begin{definition}~\cite[Definition 5.1]{BT06b} \label{def-itnorm}
+A function  $\mathbb{T}(\mathbb{S}):\UU^2 \rightarrow \UU$ is an \textbf{interval t-norm}  (\textbf{t-conorm}) if it is commutative, associative, monotonic w.r.t. both, the product and inclusion orders\footnote{Such notion of monotonicity of t-(co)norms w.r.t an inclusion order is equivalent to the notion of t-representable t-(co)norms, as presented in~\cite{Des08}.}, and has $\mathbf{1}=[1,1]$ ($\mathbf{0}=[0,0]$) as the neutral element.
+\end{definition}
+
+\begin{proposition}~\cite[Theorem 5.1]{BT06b}\label{pro-it-norm}
+If  $S$ ($T$) is a t-conorm  then $\widehat{S} (\widehat{T}):\UU^2 \rightarrow \UU$ is an interval t-conorm (t-norm).
+And, a characterization of $\widehat{S}$ ($\widehat{T}$) can be expressed by:
+%%%
+\begin{equation}\label{eq-int-s}
+\widehat{S}(X,Y)=[S(\underline{X},\underline{Y}),
+S(\overline{X},\overline{Y})],
+\,\, \widehat{T}(X,Y)=[T(\underline{X},\underline{Y}),
+T(\overline{X},\overline{Y})]
+\end{equation}
+\end{proposition}
+%%%
+
+
+\subsection{Interval fuzzy negation (Julia)}\label{subsec-4c} 
+
+A \emph{fuzzy negation} $N:U \rightarrow U$  verifies two properties: ($N1$) the boundary conditions, i.e.,
+ $N(0) = 1$ and  $N(1) = 0$; and ($N2$) it is a non-increasing function, i.e.,
+if $x \geq y$ then $N(x)\leq N(y)$, $\forall x,y \in I$. In addition, fuzzy negations satisfying the involutive property are called \emph{strong fuzzy negations} (shorten by SFN)
+: ($N3$) $N(N(x))=x$, $\forall x \in U$. See~\cite{BBS03}, for more details.
+%When the t-norm is considered, it is also possible to establish a partial order on fuzzy negations in a natural way,
+%i.e., given two fuzzy negations $N_1$ and $N_2$:
+%\begin{itemize}
+%\item $N_1\leq N_2$ if f or each $x\in U$, $N_1(x)\leq N_2(x)$.
+%\end{itemize}
+%
+%\begin{remark}\label{rem-neg}
+%If $N_1\leq N_2$ and $x\geq y$ then $N_1(x)\leq N_2(y)$.
+%\end{remark}
+
+
+\begin{definition}~\cite[Def.~4.1]{BT06b}\label{theo-neg}
+An interval function  $\mathbb{N}:\mathbb{U} \lra  \mathbb{U}$ is an \textbf{interval fuzzy negation} if, for all $X,Y \in\mathbb{U}$, it holds that: ($i$) $\mathbb{N}$1: $\mathbb{N}(\mathbf{0}) = \mathbf{1}$ and $\mathbb{N}(\mathbf{1}) = \mathbf{0}$; ($ii$) $\mathbb{N}$2: If $X \geq Y$ then $\mathbb{N}(X)\leq \mathbb{N}(Y)$; and ($iii$) $\mathbb{N}$3: If $X\subseteq Y$ then $\mathbb{N}(X)\subseteq \mathbb{N}(Y)$.
+Moreover, if $\mathbb{N}$ also meets the involutive property, it
+is a \textbf{strong interval fuzzy negation} (shorten by IV-SFN):
+$\mathbb{N}$4: $\mathbb{N}(\mathbb{N}(X)) = X$, $\forall X
+\in \mathbb{U}$.
+\end{definition}
+By~\cite[Theorem4.1.1]{BT06b}, if $N: U \lra U$  be a fuzzy negation, $\widehat{N}$  is an
+interval fuzzy negation. In addition, if $N$ is a strong fuzzy
+negation then $\widehat{N}$ is a strong interval fuzzy negation. And, a characterization of $\widehat{N}$ is given by $\widehat{N}(X)=[N(\overline{X}),N(\underline{X})]$.\vspace{-0.3cm}
+
+\subsubsection{Representable Interval-valued Fuzzy Negations}
+
+\section{Fuzzy implications (Matheus)}\label{sec-5imp}
+
+Fuzzy logic is a powerful methodology for formalizing our incomplete and imprecise knowledge of complex systems, whose construction frequently relies on the expert's statements combining the aim to model human reasoning in a more natural way  with the necessity to get ``if-then'' statements modeled by fuzzy implications. Thus, in the fuzzy logic framework, the study of fuzzy logic in the narrow sense enlarges the classes of fuzzy implications.
+A fuzzy implication should present the  behavior of  the classical
+implication when  the crisp case is considered. So,
+A binary function $I:U^2 \rightarrow U$ is a {\bf fuzzy implication} if it satisfies the minimal boundary conditions:
+\begin{description}
+\item [\textbf{I{1}}]: $I(1,1)=I(0,1)=I(0,0)=1$ and $I(1,0)=0$.
+\end{description}
+
+Several reasonable properties  may be required for fuzzy
+implications~\cite{BJ08}. Let $T$ be a t-norm and $x,y,z \in U$, the properties considered in this paper
+%in order to analyse $A$-implications (Eq.~(\ref{eq_pot}))
+are described in the
+following:
+%
+\begin{description}
+%
+\item [\textbf{I{2}}] If $x \leq z$ then $I(x,y) \geq I(z,y)$ (first place antitonicity);
+%
+\item [\textbf{I{3}}] If $y \leq z$ then $I(x,y) \leq I(x,z)$ (second place
+isotonicity);
+%
+\item [\textbf{I{4}}] $I(0,y)=I(x,1)=1$ (absorption principle);
+%
+\item [\textbf{I{5}}] $I(1,y) = y$ (left neutrality principle);
+%
+\item [\textbf{I{6}}] $I(x,I(y,z))= I(y,I(x,z))$ (exchange principle);
+%
+\item [\textbf{I{7}}] $I(x,y)\geq y$; (consequence boudary)
+%
+\item [\textbf{I{8}}] $I(x,0)=N_I(x)$ is strong fuzzy negation; % (natural negation)
+%
+\item [\textbf{I{9}}] $I(x,y)\hspace{-0.1cm}=\hspace{-0.1cm}I(N(y),N(x))$, if \hspace{-0.1cm}$N$\hspace{-0.1cm}  is a SFN (contraposition law);
+\item [\textbf{I{10}}] $I(x,x)=1$ (identity principle);
+%
+\item [\textbf{I{11}}] $x\leq y$ iff $I(x,y)=1$ (ordering principle);
+%
+\end{description}
+
+
+\subsection{Main classes of fuzzy implications}~\label{subsec-5a}
+
+Among other classes of fuzzy
+implications~(D-implications~\cite{Reiser-tema2009},
+E-implications and Xor-implications~\cite{BRD09}, force implications~\cite{Duj95}), H-implications~\cite{MassanetT11}, etc.)
+associated to an \textbf{explicit representation} obtained from
+aggregation functions and negations~\cite{Mas07a}, the classes of
+$\mathbf{S}$\textbf{-implications}~\cite{Bed10b} and
+$\mathbf{QL}$\textbf{-implications}~\cite{Rei07,SHI08} will be reported in the
+following.
+%The former, named strong implications, arising from the notion of disjunction and negation using the corresponding classical logical equivalence: $\alpha \rightarrow\beta\equiv \neg\alpha\vee \beta$; and the latter were introduced  as
+%the generalization to the fuzzy logic, leading to explicit
+%representation of $QL$-implications (quantum
+%implications)~\cite{Mas06,BJ07,SHI08}.
+In addition, the \textbf{implicit representation} of
+implications is another approach including  the class of
+$\mathbf{R}$\textbf{-implications}~\cite{BJ08}, arising from the notion
+of residuum of $T$ in Intuitionistic Logic.
+% or, equivalently, fromthe notion of residue in the theory of lattice-ordered semigroups
+% , and it is also considered in this section.
+
+
+
+\begin{definition}
+Let $S$ be a t-conorm, $T$ be a
+t-norm and $N$ be a strong fuzzy negation. Thus, for all $(x,y)\in [0,1]$, it holds that: \\
+%%%
+($i$) an $S$-implication is given by $I_{S,N}(x,y)=S(N(x),y)$;\\
+%%%
+($ii$) a $QL$-implication is given by $I_{S,N,T}(x,y)=S(N(x),T(x,y))$;\\
+%%%
+($iii$) an $R$-implication is given by $I_T(x,y)=\sup\{z:T(x,z)\leq y\}$\footnote{An R-implications is well-defined only if a t-norm $T$ is left-continuous~\cite{BT06b}}.
+\end{definition}
+
+
+\begin{proposition}\cite[Theorem 1.13]{FR94}\label{pro-S-imp}
+ An implication $I\hspace{-0.05cm}:\hspace{-0.05cm}U^2\hspace{-0.05cm}\rightarrow \hspace{-0.05cm}U$ is an \hspace{-0.05cm}$S$-implication
+iff\hspace{-0.05cm} \hspace{-0.05cm} the properties $\mathbf{I2}$\hspace{-0.05cm} (\hspace{-0.05cm}or\hspace{-0.05cm} $\mathbf{I3}$),\hspace{-0.05cm} $\mathbf{I5}$,\hspace{-0.05cm} $\mathbf{I6}$\hspace{-0.05cm} and\hspace{-0.05cm} $\mathbf{I9}$ are met.
+\end{proposition}
+
+
+
+\begin{proposition}\cite[Theorem 2.6.19]{BJ08}\label{pro-QL-imp}
+Let $I:U^2\rightarrow U$ be a $QL$-implication. $I$ satisfies
+$\mathbf{I5}$ if and only if $I$ is an $S$-implication.
+\end{proposition}
+
+%Prop.~\ref{pro-R-imp} is straightforward obtained from $1-$identity of t-norms.
+
+\begin{proposition}~\cite[Theorem 1.14]{FR94}\label{pro-R-imp}
+A function $I:U^2\rightarrow U$ is an R-implication based on a  left-continuous t-norm $T$ iff
+$I$ verifies $\mathbf{I3}$, $\mathbf{I6}$, $\mathbf{I11}$ and it is right-continuous w.r.t. its first argument.
+\end{proposition}
+
+However, there are reasonable fuzzy implication functions that can
+not be easily represented in any of these three classes, see e.g.\cite{Yag04}. In order to describe such implications, a new class of \textbf{axiomatic representation} of fuzzy
+implications, named
+$A$-implications, is described in~\cite{TurKrei98} in
+terms of non-commutativity property related to t-norms. The $A$-implications
+are based on a subset of the axioms listed in~\cite{FR94}. In this paper, we focus on QL-implication.
+
+\subsection{QL fuzzy implications}\label{subsec-5b}
+
+%\subsection{Yager's classes of fuzzy implications}\label{subsec-5b}
+
+%In~\cite{Yag04}, Yager proposed two new classes of fuzzy implications, called $f$-implications and $g$-implications, which can not be fulfilled in the above presented classes. An application of contrapositivisation technics on such functions is presented in~\cite{Bal06}. A study focusing on the general form of the law of importation for such is considered in \cite{BAL07}. We concentrate our discussion on the two extra properties:
+%\begin{description}
+%\item [\textbf{I{12}}] $I(x,T(y,z))=T(I(x,y),I(x,z))$ (distributivity);
+%
+%\item [\textbf{I{12}}] $I(T(x,y),z)=I(x,I(y,z))$ (law of importation);
+
+%\item [\textbf{I{13}}] $T(I(x,y),I(N(x),y))=y$;
+%\end{description}
+
+ %\begin{definition}\cite[Sect.3]{Yag04}\label{def-If-imp} Let  $f:[0,1]\rightarrow [0, \infty]$ be $f$-generator, which means, a strictly decreasing and continuous function such that $f(0)=1$ and its pseudo-inversa $f^{(-1)}:[0,\infty]\rightarrow [0,1]$ is defined by:
+ %\begin{equation}\label{f-gera}
+ %f^{(-1)}(x) =  f^{-1}(x), \mbox{if \,} x\leq f(0); \mbox{  and  } 0, \mbox{otherwise.}
+ %\end{equation}
+%When $0\hspace{-0.1cm}\times\hspace{-0.1cm}\infty\hspace{-0.1cm}=\hspace{-0.1cm}0$, an \textbf{\emph{f}\hspace{-0.05cm}-\hspace{-0.05cm}generated implication} $I_f\hspace{-0.1cm}:\hspace{-0.1cm}U^{2}\hspace{-0.1cm}\rightarrow\hspace{-0.1cm}U$ is given by
+%\begin{equation}\label{If-imp}
+%I_f(x,y)= f^{(-1)} \left ( x \cdot f(y) \right ).
+%\end{equation}
+% \end{definition}
+
+%\begin{definition}\cite[Sect.4]{Yag04}\label{def-Ig-imp} Let $g:[0,1]\rightarrow [0, \infty]$ be a $g$-generator, which means, it is a strictly increasing and continuous function such that $g(0)=0$ and its pseudo-inversa $g^{(-1)}$ is defined by:
+% \begin{equation}\label{g-gera}
+% g^{(-1)}(x) =  g^{-1}(x), \mbox{if \,} x\leq g(1); \mbox{ and } 1, \mbox{otherwise.}
+% \end{equation}
+%When $\infty\hspace{-0.1cm}\times\hspace{-0.1cm}0\hspace{-0.1cm}=\hspace{-0.1cm}\infty$, a \textbf{\emph{g}\hspace{-0.05cm}-generated implication} $I\hspace{-0.1cm}:\hspace{-0.1cm}U^{2}\hspace{-0.05cm}\rightarrow\hspace{-0.05cm}U$ is given by
+%  \begin{equation}\label{Ig-imp}
+%    I(x,y) = g^{(-1)}\left (\frac{1}{x}\cdot g(y)\right ).
+%  \end{equation}
+% \end{definition}
+
+%An ($g$-) $f$-generated fuzzy implication $I_f$ verifies the property $\mathbf{I1}$:
+
+%\begin{proposition}\cite[Props.3.1.2 and 3.2.2]{BJ08}
+%An ($g$-) $f$-generated implication $(I_g) I_f:U^{2}\rightarrow U$, generated as in (Def.~\ref{def-Ig-imp}) Def.~\ref{def-If-imp}, is a fuzzy implication.
+% \end{proposition}
+
+%\begin{proposition}\cite[Sect.3, p.197 and Sect.4, p.202]{Yag04}\label{pro-2-7}
+%An ($g$-) $f$-generated implication $(I_g) I_f:U^{2}\rightarrow U$, generated as in (Def.~\ref{def-Ig-imp}) Def.~\ref{def-If-imp} verifies the properties $\mathbf{Ik}$, for each $2 \leq k \leq 7$.
+% \end{proposition}
+
+%\begin{proposition}\cite[Sect.3, p.194 and Sect.4, p.197]{Yag04}\cite[Theorems 3,1.7 and 3.2.8]{BJ08}\label{pro-not-8-10-11}
+%An ($g$-) $f$-generated implication $(I_g) I_f:U^{2}\rightarrow U$, generated as in (Def.~\ref{def-Ig-imp}) Def.~\ref{def-If-imp} does not verify $\mathbf{I8}$, $\mathbf{I10}$ and $\mathbf{I11}$.
+% \end{proposition}
+
+%\noindent From Props.~\ref{pro-R-imp} and~\ref{pro-not-8-10-11} (see \cite[Theorem 4.6.1]{BJ08}) it follows that:
+%\begin{proposition}\label{pro-not-R}
+%An $f$-generated implication $I_f:U^{2}\rightarrow U$, generated by an $f$-generator as in Def.~\ref{def-Ig-imp}, is not an $R$-implication.
+% \end{proposition}
+
+%\begin{proposition}\cite[Theorem 3.2.8]{BJ08}\label{pro-not-CN}
+%A $g$-generated implication $I_g:U^{2}\rightarrow U$, generated as in Def.~\ref{def-Ig-imp}, does not verify $\mathbf{I9}$.
+% \end{proposition}
+%From Props.~\ref{pro-S-imp} and~\ref{pro-not-CN}, it is immediate that:
+
+%\begin{corollary}\label{cor-1}
+%A $g$-generated implication $I_g:U^{2}\rightarrow U$, generated as in Def.~\ref{def-Ig-imp}, is not an $S$-implication.
+%\end{corollary}
+
+%
+% YAGER IMPLICATION
+%
+
+%\subsubsection{Yager implication}\label{subsec-5c}
+%The study of Yager implication is considered according with~\cite{Yag04,Bal06,BJ08,Yag08} and~\cite{TurKrei98}.
+
+%\begin{proposition}\label{pro-Y-f-g-imp} The binary function proposed by Yager~\cite{Yag04}:
+%\begin{equation}\label{eq_pot}
+%I_Y(x,y)= 1,   \mbox{ if $x=y=0$; and }
+%I_Y(x,y)=y^{x},  \mbox{otherwise.}
+%\end{equation}
+%is an $f$- and a $g$-generated implication.
+%\end{proposition}
+%\begin{proof} Consider $f,g:[0,1]\rightarrow [0, \infty]$, such that $f(x)=-\log x$ and $g(x)=-\frac{1}{\ln(x)}$. Thus, $f$ and $g$ are an $f$- and a $g$-generator of the $I_Y$, generated as in Defs.~\ref{def-If-imp} and~\ref{def-Ig-imp}, respectively.
+%\end{proof}
+
+%\begin{corollary}\label{cor-Yager-2-7}
+%$I_Y$ verifies the properties $\mathbf{Ik}$, for each $2 \leq k \leq 7$.
+% \end{corollary}
+%\begin{proof} Straightforward  from Propositions~\ref{pro-Y-f-g-imp} and~\ref{pro-2-7}.
+%\end{proof}
+
+%\begin{proposition}\label{pro-Yager-12-13} $I_Y$ also satisfies $\mathbf{I8}$, $\mathbf{I12}$ and $\mathbf{I13}$.
+%\end{proposition}
+%\begin{proof}
+% When $x=y=0$, it is trivial. Otherwise, it holds that:
+%\textbf{I}8: Firstly, $I_Y$ is a non-decreasing function on $U$ and $I_Y(1,0)\hspace{-0.05cm}=\hspace{-0.05cm}0$ and $I_Y(1,1)\hspace{-0.05cm}=\hspace{-0.05cm}1$. By Corollary.~\ref{cor-Yager-2-7}, $I_{Y}(I_{Y}(x,0),0)= I_{Y}(x,I_{Y}(0,0))= I_{Y}(x,1)=x$. So, $N_{I_Y}$ is involutive. Now, let $T$ be a left continuous t-norm.
+%\textbf{I}12: $I_Y(x,T(y,z))\hspace{-0.05cm}=\hspace{-0.05cm}I_Y(x, y\cdot z)\hspace{-0.05cm}=\hspace{-0.05cm}(y\cdot z)^{x}\hspace{-0.05cm}=\hspace{-0.05cm}y^{x}\hspace{-0.05cm}\cdot\hspace{-0.05cm}z^{x}\hspace{-0.05cm}=\hspace{-0.05cm} T(I_Y(x,y),I_Y(x,z))$.
+%\textbf{I}13:$T(I_Y(x,y),I_Y(N(x),y))\hspace{-0.05cm}=\hspace{-0.05cm}y^{x}\hspace{-0.05cm}\cdot\hspace{-0.05cm} y^{1-x}\hspace{-0.05cm}=\hspace{-0.05cm}y$.
+%\item [I9] $I_Y(T(x,y),z)= I_Y(x \cdot y, z) = z^{x \cdot y} =
+%(z^{y})^{x} = I_Y(x,I_Y(y,z))$;
+%\end{proof}
+
+%\begin{proposition} \label{pro-IY-nao-S-R-imp} $I_Y$ is neither an $S$-implication nor a $QL$-implication nor an $R$-implication.
+%\end{proposition}
+%\begin{proof}
+%By Prop.~\ref{pro-Y-f-g-imp}, $I_Y$ is an $f$- and $g$-generated implication. Thus, by Prop.~\ref{pro-not-R} and by Corollary~\ref{cor-1}, it is neither an $S$-implication nor an $R$-implication. But $I_Y$ met $\mathbf{I5}$, by Corollary.~\ref{cor-Yager-2-7}. So, it is not a $QL$-implication by Prop.~\ref{pro-QL-imp}.
+%\end{proof}
+
+\section{Interval fuzzy implication (Matheus)}\label{sec-6}
+
+According to the idea that values in interval mathematics are
+identified with degenerate intervals\footnote{A degenerate interval $[x,x]\vspace{-0.1cm}\in\vspace{-0.1cm}\mathbb{U}$, identified with $x$, is denoted by $\mathbf{x}$.}, the minimal properties of
+fuzzy implications can be naturally extended from interval approach. Thus, for all $X,Y,Z \in \mathbb{U}$, an interval function $\II :\mathbb{U}^2\lra \mathbb{U}$ is an
+\emph{interval fuzzy implication} if the following conditions
+hold:
+\begin{description}
+\item [$\mathbb{I}$1] $\mathbb{I}(\mathbf{1},\mathbf{1})=\mathbb{I}(\mathbf{0},\mathbf{0})=
+    \mathbb{I}(\mathbf{0},\mathbf{1})=\mathbf{1}$, and
+$\mathbb{I}(\mathbf{1},\mathbf{0})=\mathbf{0}.$
+\end{description}
+Some extra properties can be naturally extended. %Notice that since that are two natural partial orders on $\mathbb{U}$
+%and two continuity notions, some properties can have two natural versions.
+
+\begin{description}
+\item [$\mathbb{I}$2] If $X \leq Z$ then $\mathbb{I}(X,Y) \geq \mathbb{I}(Z,Y)$;
+\item [$\mathbb{I}$3] If $Y \leq Z$ then $\mathbb{I}(X,Y) \leq \mathbb{I}(X,Z)$;
+\item [$\mathbb{I}$4] $\mathbb{I}(\mathbf{0},Y) = \mathbb{I}(X,\mathbf{1})=\mathbf{1}$;
+\item [$\mathbb{I}$5] $\mathbb{I}(\mathbf{1},Y) = Y$;
+\item [$\mathbb{I}$6] $\mathbb{I}(X,\mathbb{I}(Y,Z))= \mathbb{I}(Y,\mathbb{I}(X,Z))$;
+\item [$\mathbb{I}$7] $\mathbb{I}(X,Y) \geq Y $;
+\item [$\mathbb{I}$8] $\mathbb{I}(X,\mathbf{0}) = \mathbb{N}_{\mathbb{I}}(X)$ is an IV-SFN;
+\item [$\mathbb{I}$9] $\mathbb{I}(X,Y)=  \mathbb{I}(\mathbb{N}(Y),\mathbb{N}(X))$, if $\mathbb{N}$ is an IV-SFN;
+\item [$\mathbb{I}$10] $\mathbb{I}(X,X)=\mathbf{1}$;
+\item [$\mathbb{I}$11] $\mathbb{I}(X,Y)=\mathbf{1}$ iff $\overline{X}\leq \underline{Y}$;
+%\item [$\mathbb{I}$12] $\mathbb{I}(X,X)= \mathbf{1}$;
+%\item [$\mathbb{I}$13] $\mathbb{I}(X,Y)=\mathbf{1}$ if, and only if, $X\leq Y$;
+%
+%\item [$\mathbb{I}$13] $\mathbb{I}(X,Y)\geq N_I(X)$;
+%\item [$\mathbb{I}$14]
+%\item [$\mathbb{I}$15] $\mathbb{S}(X,N(X))=\mathbf{1}$;
+%\item [$\mathbb{I}$16] If $X\leq Y$ then $\mathbb{I}(X,Y)=\mathbf{0}$;
+%%
+%\item [$\mathbb{I}$00] If $X>\mathbf{0}$ then $\mathbb{I}(X,\mathbf{0})<\mathbf{1}$ ou melhor ($\mathbb{I}(X,\mathbf{0})=\mathbf{0}$);
+%\item [$\mathbb{I}$00] If $Y<\mathbf{1}$ then $\mathbb{I}(\mathbf{1},Y)<\mathbf{1}$ ou melhor ($\mathbb{I}(\mathbf{1},Y)=Y$);
+%%
+\item [$\mathbb{I}$12] $\mathbb{I}(X,\mathbb{T}(Y,Z))=  \mathbb{T}(\mathbb{I}(X,Y),\mathbb{I}(X,Z))$;
+%%\item [$\mathbb{I}$20] $\mathbb{I}(\mathbb{T}(X,Y),Z)= \mathbb{I}(X,\mathbb{I}(Y,Z))$;
+\item [$\mathbb{I}$13] $\mathbb{T}(\mathbb{I}(X,Y),\mathbb{I}(N(X),Y))=Y$;
+%\item [$\mathbb{I}$22] $\mathbb{T}(\mathbb{I}([0.5,0.5],Y),\mathbb{I}([0.5,0.5],Y))= Y$.
+\end{description}
+
+It is always possible to obtain canonically an interval fuzzy implication from any fuzzy implication, which also meets the optimality property and preserves the same properties satisfied by the fuzzy
+implication. Now, as a particular case of Eq.(\ref{eq-br}), the best interval representation $\widehat{I}$ of a fuzzy implication $I$, is shown as an inclusion-monotonic function in both arguments.
+
+\begin{proposition}~\cite[Prop.~16]{Bed10b}
+If $I$ is a fuzzy implication then $\widehat{I}$ is an interval
+fuzzy implication.
+\end{proposition}
+
+\begin{proposition}\cite[Prop.~21]{Bed10b}\label{pro-char-cirI}
+An implication $I: U^2 \lra U$ satisfies the Properties \emph{\textbf{I1}} and \emph{\textbf{I2}} iff $\widehat{I}$ can be expressed as\vspace{-0.1cm}
+\begin{equation}\label{eq-int-i}
+\widehat{I}(X,Y)= [I(\overline{X},\underline{Y}), I(\underline{X},\overline{Y})].
+\end{equation}
+\end{proposition}
+
+%\begin{proposition}
+%Let $I$ be a fuzzy implication. Then for each $X_1,X_2,Y_1,Y_2\in \mathbb{U}$, if $X_1\subseteq X_2$ and $Y_1\subseteq
+%Y_2$ then $\widehat{I}(X_1,Y_1)\subseteq \widehat{I}(X_2,Y_2)$.
+%\end{proposition}
+
+%\begin{proposition}
+%Let $I: U^2 \lra U$  be a fuzzy implication satisfying the properties I1 and I2. Then an characterization of
+%$\widehat{I}$ can be obtained as
+%%%%
+%\begin{align}\label{eq-int-i}
+%\widehat{I}(X,Y)=&
+%[I(max(\overline{X},\overline{Y}),min(\underline{X},\underline{Y})),
+%I(min(\underline{X},\underline{Y}),max(\overline{X},\overline{Y}))].
+%\end{align}
+%\end{proposition}
+
+%Based on projection functions defined by Eqs.~\ref{eq-projection-Fu} and \ref{eq-projection-Fo}, the next theorem holds.
+
+\begin{proposition}~\cite[Prop.~23]{Bed10b}~\cite[Theorem~11]{BDR09}\label{cor-prop-int-imp}
+Let $I$ be a fuzzy implication satisfying \emph{\textbf{I2}} and \emph{\textbf{I3}}. $I$ satisfies the Property
+\emph{\textbf{Ik}}, for some $\emph{\textbf{k}}=4,\ldots,7$ iff $\widehat{I}$ satisfies the Property
+$\II\mathbf{k}$.
+\end{proposition}
+%converse of the ordering principle is not proved in Theorem 11!!!
+
+\begin{proposition}\label{cor-prop-int-imp-2}
+Let $I$ be a fuzzy implication satisfying \emph{\textbf{I1}} and \emph{\textbf{I2}}. $I$ satisfies~$\mathbf{I12}$ and~$\mathbf{I13}$ iff $\widehat{I}$ satisfies~$\II\mathbf{12}$ and $\II\mathbf{13}$:
+%\begin{description}
+%\item [$\mathbb{I}$12] $\mathbb{I}(X,\mathbb{T}(Y,Z))=  \mathbb{T}(\mathbb{I}(X,Y),\mathbb{I}(X,Z))$;
+%%\item [$\mathbb{I}$20] $\mathbb{I}(\mathbb{T}(X,Y),Z)= \mathbb{I}(X,\mathbb{I}(Y,Z))$;
+%\item [$\mathbb{I}$13] $\mathbb{T}(\mathbb{I}(X,Y),\mathbb{I}(N(X),Y))=Y$.
+%%\item [$\mathbb{I}$22] $\mathbb{T}(\mathbb{I}([0.5,0.5],Y),\mathbb{I}([0.5,0.5],Y))= Y$.
+%\end{description}
+\end{proposition}
+
+\begin{proof}
+%For $\emph{\textbf{k}}=2-12$, see the
+%proof in~\cite[Corollary 22]{Bed10b}~\cite[Theorem
+%6.1]{Benja-scan-2006}. When $\emph{\textbf{k}}=13$ and
+%$\emph{\textbf{k}}=14$, the proof is presented
+%in~\cite[~Proposition 6.5]{Benja-scan-2006}
+%and~\cite[~Proposition 6.3]{Benja-scan-2006}, respectively.
+Let $T$ be an interval $T$ norm. It holds that:\\
+\textbf{I}$12$ : ($\Rightarrow$) When $u\in \widehat{I}(X,\widehat{T}(Y,Z))$, there exist
+$x\in X$ and $v\in \widehat{T}(Y,Z)$ with $u=I(x,v)$. If $v\in
+\widehat{T}(Y,Z)$, then there exists $y\in Y$ and $z\in Z$ such that
+$v=T(y,z)$. So, $u=I(x,T(y,z))$ and, by \textbf{I}12,
+$u=T(I(x,y),I(x,z))$. Thus, since $I(x,y)\in \widehat{I}(X,Y)$ and  $I(x,z)\in
+\widehat{I}(X,Z)$, $u\in \widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$.
+Therefore, we can conclude that $\widehat{I}(X,\widehat{T}(Y,Z))\subseteq
+\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$.
+
+($\Leftarrow$) On the other hand, if $u\in \widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$ then there exist $w\in \widehat{I}(X,Y)$ and $v\in \widehat{I}(X,Z)$ such that $u=T(w,v)$.
+ But, when $w\in
+\widehat{I}(X,Y)$, there exist $x\in X$ and $y\in Y$, and
+$w=I(x,y)$. In addition, if $v\in
+\widehat{I}(X,Z)$ then there exist $x\in Z$ and $z\in Z$ and
+$v=I(x,z)$. So, $u=T(I(x,y),I(x,z))$ and therefore, by Property \textbf{I}8,
+$u=I(x, T(y,z))$. Thus, since $x\in X$ and  $T(y,z)\in \widehat{T}(Y,Z)$, it holds that $u\in \widehat{I}(X,\widehat{T}(Y,Z))$. Concluding, we proved that
+$\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))=
+\widehat{I}(X,\widehat{T}(Y,Z))$, so $\widehat{I}$ satisfies~$\II\mathbf{12}$. \\
+%
+\textbf{I}$13$ :  ($\Rightarrow$) If $u\in \widehat{T}(\widehat{I}(X,Y),\widehat{I}(N(X),Y))$ then there exist $w\in \widehat{I}(X,Y)$ and $v\in \widehat{I}(N(X),Y)$ such that $u=T(w,v)$.
+Analogously, when $w\in
+\widehat{I}(X,Y)$, there exist $x\in X$ and $y\in Y$ such that
+$w=I(x,y)$. And, $v\in
+\widehat{I}(N(X),Y)$ implies that, for $N(x)\in N(X)$ and $y\in Y$,
+$v=I(N(x),y)$. So, $u=T(I(x,y),I(N(x),y))$ and, by Property \textbf{I}13, it holds that
+$u=y$. Thus, since $y\in Y$, $u\in Y$.  Therefore,
+$\widehat{T}(\widehat{I}(X,Y),\widehat{I}(N(X),Y)) \subseteq Y$.
+
+($\Leftarrow$) When $y \in Y$, by Property \textbf{I}13, $T(I(x,y),I(N(x),y)) \in Y$. Since $x\in X$, $y\in Y$ and $z\in Z$, $I(x,y) \in \widehat{I}(X,Y)$ and $I(x,z) \in \widehat{I}(X,Z)$. So, $y = T(I(x,y),I(N(x),y)) \in \widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$, which means $Y\hspace{-0.1cm}\subseteq\hspace{-0.1cm}\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$.
+Thus, $\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))\hspace{-0.05cm}=\hspace{-0.05cm}Y$.
+\end{proof}
+
+
+\subsection{Main classes of interval implications}~\label{subsec_int_class}
+
+This section extends the classes of implications presented in Sect.~\ref{subsec-5a}.\vspace{-0.2cm}
+
+\subsubsection{Explicit and implicit interval implications}\label{subsec-6a}
+
+Let $\mathbb{S}$ be an interval t-conorm, $\mathbb{T}$ be an interval t-norm and $\NN$ be a strong interval fuzzy negation. Thus, expressions of the main classes of interval implications are in the following:\\
+($i$) \hspace{-0.1cm}\textbf{interval R-implication}, as $\II_{\mathbb{T}}(X,Y)\hspace{-0.05cm}=\hspace{-0.05cm}\sup\{Z\hspace{-0.05cm}\in\hspace{-0.05cm} \UU|\TT(X,Z)\hspace{-0.05cm}\leq\hspace{-0.05cm}Y\}$;\\
+($ii$)\hspace{-0.1cm} \textbf{interval QL-implication}, as $\II_{\Ss,\NN,\TT}(X,Y)\hspace{-0.05cm}=\hspace{-0.05cm}\Ss(\NN(X),\TT(X,Y));$\\
+($iii$)\hspace{-0.1cm} \textbf{interval S-implication}, as $\II_{\Ss,\NN}(X,Y)\hspace{-0.05cm}=\hspace{-0.05cm}\Ss(\NN(X),Y)$.
+
+\begin{theorem}\cite[Theorem 24]{Bed10b}\label{teo-S-imp-BIR}
+Let $S$ be a t-conorm and $N$ be a strong fuzzy negation. Then
+$\II_{\widehat{S},\widehat{N}}=\widehat{I_{S,N}}= [I_{S,N}(\overline{X},\underline{Y}), I_{S,N}(\underline{X},\overline{Y})]$.
+\end{theorem}
+
+\begin{proposition}\cite[Theorem 29]{Bed10b}\label{pro-int-simp-prop-3}
+Let $\II$ be an interval fuzzy implication.  $\II$ is an interval S-implication iff $\II2,\II3$,$\II4,\II5$ and $\II9$ hold.
+\end{proposition}
+
+\begin{theorem}\cite[Theorema 4]{Rei07}\label{teo-QL-imp-BIR}
+Let $S$ be a t-conorm, $T$ be a t-norm and $N$ be a strong fuzzy
+negation. If $S$ and $T$  are continuous,
+$\II_{\widehat{S},\widehat{N},\widehat{T}}\hspace{-0.05cm}=
+\hspace{-0.05cm}\widehat{I_{S,N,T}}\hspace{-0.05cm}=\hspace{-0.05cm} [I_{S,N,T}(S(N(\overline{X})\hspace{-0.05cm},\hspace{-0.05cm}T(\underline{X},\underline{Y}))\hspace{-0.05cm},\hspace{-0.05cm} I_{S,N,T}(S(N(\underline{X})\hspace{-0.05cm},\hspace{-0.05cm}T(\overline{X},\overline{Y}))]$.
+\end{theorem}
+
+\begin{proposition}\label{pro-int-QLimp-prop}
+Let $\II$ be an interval fuzzy implication. If $\II$ is an
+interval QL-implication then $\II$ satisfies the properties $\II3$, $\II5$ and $\II8$.
+\end{proposition}
+
+
+\begin{proposition}~\cite[Theorem 24]{BDR09}
+Let $T$ be a left-continuous t-norm. If $\II_{\widehat{T}}$ is $\subseteq$-monotonic then
+$\II_{\widehat{T}}=\widehat{I_{T}}$.
+\end{proposition}
+
+\begin{proposition}\cite[Theorem 14]{BDR09}\label{pn}
+Let $\mathbb{T}$ be a (Moore, Scott) left-continuous interval t-norm. If $\II$ is an
+interval R-implication then $\II$ satisfies $\II3$, $\II6$ and $\II11$.
+\end{proposition}
+
+\subsubsection{Interval QL-implications}\label{subclass-int-ql}
+
+%\subsubsection{Interval Yager's classes of implications}\label{subclass-int-Yager}
+
+% \begin{definition}\label{def-int-f-imp} Consider $F:\mathbb{I}_{U}\rightarrow \mathbb{I}_{[0,\infty]}$ as a $\lll$-decreasing and (Scott and Moore) continuous interval function with $F(\mathbf{1})=\mathbf{0}$ and a pseudo-inverse $F^{(-1)}:\mathbb{I}_{[0,\infty]}\rightarrow \mathbb{I}_{U}$ given by:
+% \begin{equation}\label{eq-int-f-gen}
+% F^{(-1)}(Y) =  F^{-1}(Y), \mbox{if \,} Y\lll F(\mathbf{0}); \mbox{ and } \mathbf{0}, \mbox{otherwise.}
+% \end{equation}
+% An \textbf{interval \emph{F}-generated implication} $\mathbb{I}_F:\mathbb{U}^2\rightarrow \mathbb{U}$ is defined by
+% \begin{equation}\label{eq-int-f-imp}
+%\mathbb{I}_F(X,Y) = F^{(-1)}(X\cdot F(Y)).
+% \end{equation}
+%\end{definition}
+
+%\begin{proposition}\label{pro-int-f-imp}
+%An interval $F$-generated operator $\mathbb{I}_F:\mathbb{U}^2\rightarrow \mathbb{U}$, defined by Eq.~(\ref{eq-int-f-imp}) and with the understanding that $\mathbf{0}\cdot [\infty,\infty]=\mathbf{0}$, is an interval fuzzy implication.
+%\end{proposition}
+%\begin{proof} For all $X,Y \in \mathbb{U}$, by Definition~\ref{def-int-f-imp}, it holds that
+%$\mathbb{I}_F(\mathbf{0},Y)\hspace{-0.1cm}=\hspace{-0.1cm}
+%F^{(-1)}(\mathbf{0}\cdot %F(Y))\hspace{-0.1cm}=\hspace{-0.1cm}F^{-1}(\mathbf{0})\hspace{-0.1cm}=\hspace{-0.1cm}\mathbf{1}$
+%and $\mathbb{I}_F(X,\mathbf{1})\hspace{-0.1cm}=\hspace{-0.1cm}
+%F^{(-1)}(X\cdot F(\mathbf{1}))\hspace{-0.1cm}=\hspace{-0.1cm}F^{-1}(\mathbf{0})\hspace{-0.1cm}=\hspace{-0.1cm}\mathbf{1}$. In addition, in both cases, $F(\mathbf{0})=\infty$ or $F(\mathbf{0})<\infty$, it holds that $\mathbb{I}_F(\mathbf{1},\mathbf{0})\hspace{-0.1cm}=\hspace{-0.1cm}
+%F^{(-1)}(\mathbf{1}\cdot F(\mathbf{0}))\hspace{-0.1cm}=\hspace{-0.1cm}F^{-1}(F(\mathbf{0}))\hspace{-0.1cm}=\mathbf{0}$ Therefore, by $\mathbb{I}$1, it follows that $\mathbb{I}_F$ is an interval fuzzy implication.
+%\end{proof}
+
+%\begin{definition}\label{def-int-g-imp} Consider $G:\mathbb{I}_{U}\rightarrow \mathbb{I}_{[0,\infty]}$ as a $\lll$-increasing and (Scott and Moore) continuous interval function with $G(\mathbf{0})=\mathbf{0}$ and a pseudo-inverse $G^{(-1)}: \mathbb{I}_{[0,\infty]}\rightarrow \mathbb{U}$ given by:
+% \begin{equation}\label{eq-int-g-gen}
+% G^{(-1)}(Y) = G^{-1}(Y),  \mbox{if \,} Y\lll G(\mathbf{1}); \mbox{ and } \mathbf{1}, \mbox{otherwise.}
+% \end{equation}
+% An \textbf{interval \emph{G}-generated implication} $\mathbb{I}_G:\mathbb{U}^2\rightarrow \mathbb{U}$ is defined by
+% \begin{equation}\label{eq-int-g-imp}
+%\mathbb{I}_G(X,Y) = G^{(-1)}\left(\frac{\mathbf{1}}{X}\cdot G(Y)\right).
+% \end{equation}
+%\end{definition}
+
+%\begin{proposition}\label{pro-int-g-imp}
+%An interval $G$-generated operator $\mathbb{I}_G:\mathbb{U}^2\rightarrow \mathbb{U}$ defined by Eq.~(\ref{eq-int-g-imp}), with the understanding that $\frac{\mathbf{1}}{\mathbf{0}}=[\infty,\infty]$ and  $[\infty,\infty]\cdot \mathbf{0}= [\infty,\infty]$, is an interval fuzzy implication.
+%\end{proposition}
+%\begin{proof} By Def.~\ref{def-int-g-imp}, it holds that:
+
+%($i$) $\mathbb{I}_G(\mathbf{0},\mathbf{0})\hspace{-0.1cm}=\hspace{-0.1cm}
+%G^{(-1)}(\frac{1}{\mathbf{0}}\cdot G(\mathbf{0}))\hspace{-0.1cm}=\hspace{-0.1cm}G^{(-1)}([\infty,\infty])\hspace{-0.1cm}=\hspace{-0.1cm}\mathbf{1}$;
+%($ii$) $\mathbb{I}_G(\mathbf{1},\mathbf{0})\hspace{-0.1cm}=\hspace{-0.1cm}
+%G^{(-1)}(\mathbf{1}\cdot G(\mathbf{0}))\hspace{-0.1cm}=\hspace{-0.1cm}G^{-1}(\mathbf{0})\hspace{-0.1cm}=\mathbf{0}$; ($iii$) $\mathbb{I}_G(\mathbf{1},\mathbf{1})\hspace{-0.1cm}=\hspace{-0.1cm}
+%G^{(-1)}(G(\mathbf{1}))\hspace{-0.1cm}=\mathbf{1}$; and ($iv$) $\mathbb{I}_G([\infty,\infty],G(\mathbf{1}))\hspace{-0.1cm}=\hspace{-0.1cm}\mathbf{1}$. Therefore, by $\mathbb{I}$1, it follows that $\mathbb{I}_G$ is an interval fuzzy implication.
+%\end{proof}
+
+%\begin{proposition}\label{pro-int-Yager}Consider $G, F: \mathbb{I}_{U} \rightarrow \mathbb{I}_{[0,\infty]}$ and let $\mathbb{I}_{Y}: \mathbb{U}^2\rightarrow \mathbb{U}$ be the \textbf{interval Yager implication}\footnote{$Y^{X}=[\underline{Y}^{\overline{X}},\overline{Y}^{\underline{X}}]$
+%denotes the generalized power interval operator.} defined by
+%\begin{equation}\label{eq_pot_int}
+%\mathbb{I}_{Y}(X,Y)= \mathbf{1}, \mbox{if $X=Y=\mathbf{0}$ and  } \mathbb{I}_{Y}(X,Y)=Y^{X},
+%\mbox{otherwise.}
+%\end{equation}
+%Then, $Y^{X}$ is an interval $(F$-$)$ \emph{G}-generated implication.
+%\end{proposition}
+%\begin{proof}
+%($i$) $ \mathbb{I}_{Y}$ is an interval $F$-generated implication when the interval \emph{F}-generated operator is given as $F(X)=-\mathbf{Ln}(X)$\footnote{$\mathbf{Ln}{X}=[\ln(\underline{X}),\ln(\overline{X})]$
+%denotes the natural logarithmic interval operator.} and related interval %pseudo-inverse as $F^{(-1)}(Y)= \mathbf{Exp}^{-Y}$, if $Y\lll F(\mathbf{0})$ and $F^{(-1)}(Y)=\mathbf{0}$, otherwise\footnote{$\mathbf{Exp}{X}\hspace{-0.05cm}=\hspace{-0.05cm}[\exp(\underline{X}),\exp(\overline{X})]$
+%denotes the exponential interval operator.};
+%($ii$) $\mathbb{I}_{Y}$ is also an interval $G$-generated implication %whose generator is given by $G(X)\hspace{-0.1cm}=\hspace{-0.1cm}-\frac{\mathbf{1}}{\mathbf{Ln}(X)}$ %and $G^{(-1)}(Y)\hspace{-0.1cm}=\hspace{-0.1cm}\mathbf{Exp^{-\frac{\math%bf{1}}{Y}}}$, if $Y\hspace{-0.05cm}\lll\hspace{-0.05cm}G(\mathbf{1})$ %and $G^{(-1)}(Y)\hspace{-0.05cm}=\hspace{-0.05cm}\mathbf{1}$, otherwise.
+%\end{proof}
+
+%\begin{proposition} \label{pro-it-yagerimp}
+%$\widehat{I_Y}(X,Y)=\mathbb{I}_{Y}(X,Y)=[I_Y(\overline{X},\underline{Y})%,I_Y(\underline{X},\overline{Y})]$.
+%\end{proposition}
+%\begin{proof} It follows from Corollary~\ref{cor-Yager-2-7} and %Prop.~\ref{pro-char-cirI}.
+%\end{proof}
+
+
+
+
+%\begin{theorem}\label{pro-int-Yager-2-7}
+%${I}_Y$ satisfies the properties $\mathbf{I}$k iff $\mathbb{I}_Y$ %satisfies the properties $\II$k, for
+%$k=2,\ldots,8,12,13$.
+%\end{theorem}
+%\begin{proof} It follows from Corollary.~\ref{cor-Yager-2-7} and %Prop.~\ref{pro-Yager-12-13} in Sect.~\ref{sec-5imp} and %Props.~\ref{pro-char-cirI}, \ref{cor-prop-int-imp} %and~\ref{cor-prop-int-imp-2} in the previous Subsect.~\ref{subsec-6a}.
+%\end{proof}
+
+%\begin{proposition}
+%$\mathbb{I}_Y$ does not meet properties $\II$9 and $\II$10.
+%\end{proposition}
+%\begin{proof}
+%($i$) When $\mathbb{I}_{Y}(\mathbb{N}(X),\mathbb{N}(Y)) =
+%\mathbb{I}_{Y}(X,Y)$, %$I_Y(N(\underline{X}),N(\overline{Y}))=I_Y(\overline{X},\underline{Y})$ %and $I_Y(N(\overline{X}),N(\underline{Y})) = %I_Y(\underline{X},\overline{Y})$. So, since $N$ is IV-SFN, $X$ and $Y$ %are the equilibrium points. Then $\mathbb{I}_Y$ does not meet $\II$9.\\
+%($ii$) Taking $\II(X,X)=\mathbf{1}$ it follows that %$\underline{\II}(X,X)=I_Y(\overline{X},\underline{X})=1$, So, either %$\underline{X}=1$ or $\overline{X}=\underline{X}=0$. Therefore, %$\mathbb{I}_Y$ does not meet $\II$10.
+%\end{proof}\vspace{-0.1cm}
+
+
+%\begin{proposition} \label{pro-IY-nao-S-R-imp-int} $\mathbb{I}_Y$ is neither an interval $S$-implication nor an interval $R$-implication and nor an interval $QL$-implication.
+%\end{proposition}
+%\begin{proof}
+%It follows from Props.~\ref{pro-int-simp-prop-3}, \ref{pro-int-QLimp-prop} and ~\ref{pn} in Sect.~\ref{subclass-int-Yager}.
+%\end{proof}
+
+
+
+
+\section{Automorphisms on $\UU$ (Sérgio)}
+
+\section{Conclusion}\label{sec-conc}
+
+%The extensions of the interval fuzzy connectives have been widely studied. In interval mathematics, the result of an interval computation must always contain the value of the related real function ensuring the correctness of its computations. In this context, interval representations are able to express computations with real numbers and their interrelations in Scott and Moore topologies. Based on the canonical interval representation of a real function, also aggregating the optimality criteria, it is possible to obtain the correct and optimal (lowest) result, but not necessarily a computable one.  fuzzy connectives, emphasizing main properties properties preserved by such construction.
+%Following previous work related to well-studied fuzzy implications, the ones with explicit representations ($S$-implications, $QL$-implications) and implicit representation ($R$-implications) in terms of fuzzy connectives,
+This work investigates the interval Yager's classes implications, in the approach of an axiomatic representation to fuzzy implications.  We study the interval $f$- and $g$-generator, which is related to the type of interval additive generator used to represent interval t-norm and interval t-conorms, respectively (see~\cite{BDSR11}). Thus, the interval $f$- and $g$-generated implications derived from corresponding interval $f$- and $g$-generator are considered. Based on the canonical representation, our task has undertaken the discussion of the canonical interval representation of  Yager implication, emphasizing similar and extra properties of related main classes of interval fuzzy implications. Such discussion contributes to obtain of alternative approaches to generate interval fuzzy implication considering both the correctness and the optimality criteria. Further work is focused on the study the interval-valued intuitionistic Yager's classes implications.\vspace{-0.5cm}
+
+\begin{thebibliography}{8}
+{\small
+
+%\bibitem{Ale83} G. Alefeld and J. Herzberger, {\it Introduction to Interval
+%Computations}, NY: Academic Press, 1983.
+
+%\bibitem{Bac04} M. Baczynski, Residual Implications Revisited, Notes on the Smets-Magrez,
+%{\it Fuzzy Sets and Systs.}, {\bf 145} (2) (2004),
+%267--277.
+
+%\bibitem{BJ07} M. Baczynski and B. Jayaram, On the characterization of ({S},{N})-implications,
+%{\it Fuzzy Sets and Systs.}, {\bf 158} (2007),
+%1713--1727.
+
+\bibitem{BJ08} M. Baczynski and B. Jayaram, \emph{Fuzzy implications}, Studies in
+Fuzziness and Soft Computing, Vol. {\bf231}, Springer, Berlin-Heidelberg, 2008.
+
+
+%\bibitem{BW96} B. De Baets and B. Walle, Weak and strong interval orders,
+%\emph{Fuzzy Sets and Systs.}, {\bf 179} (1996), 213--225.
+%
+\bibitem{Bal06} J. Balasubramaniam, Contrapositive symmetrization of fuzzy implications - Revisited,
+\emph{Fuzzy Sets and Systs.}, {\bf 157} (2006), 2291--2310.
+
+%\bibitem{Bal08} J.\hspace{-0.05cm}Balasubramaniam,\hspace{-0.08cm} {\small On\hspace{-0.01cm}the\hspace{-0.01cm}law\hspace{-0.01cm} of\hspace{-0.01cm}Importantion{\small\hspace{-0.1cm}} $(\hspace{-0.05cm}x\hspace{-0.05cm}\wedge\hspace{-0.05cm}y)\hspace{-0.1cm}\rightarrow \hspace{-0.1cm}z\hspace{-0.1cm}\equiv\hspace{-0.1cm}(x\hspace{-0.1cm}\rightarrow \hspace{-0.1cm}(\hspace{-0.05cm}y\hspace{-0.05cm}\rightarrow\hspace{-0.05cm}z)\hspace{-0.05cm})$} in Fuzzy Logic,
+%\emph{IEEE Trans. on Fuzzy Systs.}, {\bf 16}(1) (2008), 130--144.
+
+\bibitem{BAL07}
+J. Balasubramaniam,  Yager's new class of implications ${J}_f$ and some classical
+  tautologies, \emph{Information Sciences}, \textbf{177}(3) (2007), 930--946.
+
+%\bibitem{Bed10a}
+%B. C. Bedregal, On interval fuzzy negations, \emph{Fuzzy Sets
+%and Systs.}, {\bf 161} (2010), 2290 -- 2313.
+
+\bibitem{Bed10b}
+B.C. Bedregal, G.P. Dimuro, R.H.N. Santiago and R.H.S. Reiser, On
+interval fuzzy {S}-implications, \emph{Information Sciences},
+\textbf{180}(8) (2010), 1373--1389.
+
+\bibitem{BRD09} B. Bedregal, R.H.S. Reiser and G.P. Dimuro,
+Xor-Implications and E-Implications: Classes of Fuzzy Implications
+Based on Fuzzy Xor. \emph{Elec. Notes in Theoretical Computer
+Science}, {\bf 247} (2009), 5 -- 18.
+
+%\bibitem{Benja-scan-2006} B. C. Bedregal and R. H. N. Santiago and R. H. S. Reiser and G. P. Dimuro,
+%Analyzing Properties of Fuzzy Implications Obtained via the Interval Constructor, 12th GAMM - IMACS International Symposium on Scientific Computing, Computer Arithmetic and Validated Numerics, 26-29 September, Duisburg, 2006, SCAN 2006 Conference Post-Proceedings,2007, IEEE Computer Society, Los Alamitos, 13.
+
+\bibitem{BDR09} B.C. Bedregal, G.P. Dimuro and R.H.S. Reiser, An
+approach to interval-valued R-implications and automorphisms. In
+\emph{IFSA/EUSFLAT}, pp. 1--6, Lisboa, 2009.
+
+%\bibitem{BT06a} B.C. Bedregal and A. Takahashi,
+%The Best Interval Rep. of T-Norms and Automorphisms,
+%{\it Fuzzy Sets and Systs.}, \textbf{157}(24)(2004),3220--3230.
+
+\bibitem{BT06b} B.C. Bedregal and A. Takahashi,
+Interval Valued Versions of T-Conorms, Fuzzy Negations and Fuzzy
+Implications, \emph{IEEE Intl. Conf. on Fuzzy Systs.}, Vancouver,
+2006, pp. 1981--1987.
+
+%\bibitem{BBF07} U. Bodenhofer, B. De Baets and J. C. Fodor,
+%A compendium of fuzzy weak orders: Representations and
+%constructions, \emph{Fuzzy Sets and Systs.}, {\bf 158} (8)
+%(2007), 811--829.
+
+%\bibitem{BUS00} H. Bustince, Indicator of inclusion grade for interval\-valued fuzzy sets.
+%Application to approximative reasoning based on interval-valued
+%fuzzy sets, \emph{International Jornal of Approximate Reasoning},
+%{\bf 23} (2000), 137-- 209.
+
+%\bibitem{BBM04} H. Bustince, E. Barrenechea and V. Mohedano,
+%Intuitionistic fuzzy implication operators, an expression and main
+%properties, \emph{Intl. Journal of Unc. Fuzziness
+%Knowledge Based Systs.}, {\bf 12} (2004), 387
+%--406.
+
+%\bibitem{BP08} H. Bustince, E. Barrenechea, M. Pagola,  Generation of interval-valued fuzzy and atanassov's
+%intuitionistic fuzzy connectives from fuzzy connectives and from
+%{K} $\alpha$ operators: Laws for conjunctions and disjunctions,
+%amplitude, \emph{Intl. Journal of Intelligent Systs.},
+%\textbf{23} (6) (2008), 680--714.
+
+\bibitem{BBS03} H. Bustince, P. Burillo, and F. Soria, Automorphism, Negations and Implication Operators,
+{\it Fuzzy Sets and Systs.}, \textbf{134} (2003),
+209--229.
+
+%\bibitem{CB04} R. Callejas-Bedregal and B.R.C. Bedregal,
+%Intervals as a Domain Constructor, {\it TEMA}, \textbf{2} (1) (2001),
+%43--52.
+
+%\bibitem{CDK03} C. Cornelis, G. Deschrijver,  E. E. Kerre, Implication in intuitionistic fuzzy and interval-valued
+%fuzzy set theory: construction, classification, application,
+%\emph{International Journal of Approximate Reasoning}, {\bf 35}
+%(2004), 55--95.
+%
+%\bibitem{DK03} G. Deschrijver,  E. E. Kerre, On the relationship between some extensions of fuzzy set theory,
+%\emph{Fuzzy Sets and Systs.}, {\bf 133} (2) (2003), 225 --
+%235.
+%
+%\bibitem{CDK06} G. Cornelis, G. Deschrijver, E.E. Kerre, Advances and
+%Challenges in Interval-Valued Fuzzy Logic, {\it Fuzzy Sets and
+%Systs.}, \textbf{157} (2006), 622--627.
+
+%\bibitem{GK05} G. Deschrijver and E. Kerre, Implicators based on binary aggregation operators in
+%interval-valued fuzzy set theory, \emph{Fuzzy Sets and Systs.} \textbf{153} (2005), 229-248.
+%
+\bibitem{Des08} G. Deschrijver, A representation of t-norms in interval-valued $L-$fuzzy set theory,
+\newblock {\em Fuzzy Sets and Systs.}, \textbf{159}(13)(2008), 1597--1618.
+
+\bibitem{BDSR11}
+G.P. Dimuro, B. Bedregal, R.H.N. Santiago and R.H.S. Reiser,
+Interval Additive  Generators of Interval T-Norms and Interval T-Conorms.
+Inf. Sci., \textbf{181}(18), pp. 3898-3916, 2011.
+
+
+%\bibitem{DP91} D. Dubois, H. Prade, Random sets and fuzzy interval analysis, \emph{Fuzzy Sets and Systs.},
+%{\bf 42} (1) (1991), 87 -- 101.
+
+%\bibitem{Dubois00}
+%D. Dubois and H.  Prade, Fundamentals of Fuzzy Theory: The
+%handbooks of fuzzy sets series, Ed. Didier Dubois and Henri Prade,
+%Dordrecht: Kluwer Academic Publishers, (2000) 21--106.
+
+%\bibitem{DuOsPr00} D. Dubois and W. Ostasiewicz and Henri Prade, Fuzzy sets: History and basic notions,
+%The Handbooks of Fuzzy Sets Series: Fundamentals of Fuzzy Sets, Eds. Didier Dubois and Henri Prade, Boston:Kluwer Academic Publishers (2000),  21--124.
+%
+%
+%\bibitem{Dubois05} D. Dubois, H.  Prade, Interval-valued fuzzy sets, possibility theory and
+%imprecise probability, in Proceedings of the ``International Conference on Fuzzy Logic and Technology'',  pp.
+% 314-319, Barcelona, 2005.
+%
+%\bibitem{Dubois2009} D. Dubois and H. Prade and S. Sessa, Recent Literature: Collected by Didier Dubois, Henri Prade and Salvatore Sessa, emph{Fuzzy Sets and Systs.}, {\bf 160} No.2 (2009), 2032--2048.
+
+\bibitem{Duj95}  Ch. Dujet and N. Vincent, Force Implication: {A} New Approach to Human Reasoning,
+\emph{Fuzzy Sets and Systs.}, \textbf{69} (1) (1995),
+53--63.
+
+%\bibitem{Fod91} J.C. Fodor, On fuzzy implication operators, \emph{Fuzzy Sets and Systs.}, \textbf{42} (1991),
+%293--300.
+%
+\bibitem{FR94} J. Fodor and M. Roubens, Fuzzy Preference Modelling and Multicriteria Decision Support, Kluwer Academic Publisher, Dordrecht, 1994.
+
+%\bibitem{Gasse08} B. Van Gasse, C. Cornelis, G. Deschrijver and E. Kerre,
+%A characterization of interval valued residuated lattices,
+%\emph{International Journal of Approximate Reasoning} {\bf 49} (2)
+%(2008), 478 -- 487.
+
+%\bibitem{Goguen67} J. Goguen, $L-$ fuzzy sets, \emph{Journal of Mathematical Analysis and Appls.},
+%{\bf 18} (1) (1967), 145 - 174.
+%
+%\bibitem{Grattan-Guiness75} I.~Grattan-Guiness, Fuzzy membership mapped onto interval and
+%many-valued  quantities, \emph{Z. Math. Logik. Grundladen Math.}
+%\textbf{22} (1975) 149--160.
+
+\bibitem{Hic01} T. Hickey, Q. Ju and M. Emdem, Interval arithmetic: from principles to implementation,
+\emph{Journal of the {ACM}} \textbf{48}(5) (2001), 1038--1068.
+
+\bibitem{keafort} R. Keafort,  V.~Kreinovich (eds.), ``Applications of Interval Computations'',
+Kluwer, Boston, 1996.
+
+%\bibitem{KY95} G.J. Klir. B. Yuan, Fuzzy Sets and Fuzzy Logics: Theory and Applications, Prentice Hall, 1995.
+
+%\bibitem{Kreinovich08} C. Hu, R. Kearfott, A. de Korvin and V. Kreinovich, Knowledge Processing with
+%Interval and Soft Computing, London: Springer Verlag, 2008.
+
+%\bibitem{GWW96b} M. Gehrke, C. Walker and E. Walker,  Some comments on interval valued fuzzy
+%sets, \emph{Intl. Journal of Intelligent Systs.} \textbf{11} (1996), 751--759.
+%
+\bibitem{Lod02}
+W. Lodwick, Reliable Computing: Special Issue on the Linkages
+between Interval Mathematics and Fuzzy Set Theory, \emph{Reliable
+Computing}, {\bf 8} (1) (2002), 95 --98.
+
+%\bibitem{Lod04}
+%W. Lodwick, Preface, {\it Reliable Computing}, {\bf 10} (4)
+%(2004), 247--248.
+
+%\bibitem{Lod09}
+%W. Lodwick, The Relationship between Interval, Fuzzy and Possibilistic Optimization,
+%Modeling Decisions for Artificial Intelligence, in ``Proceedings of the 6th International Conference'' (Vicen{\c c} Torra and Yasuo Narukawa and Masahiro Inuiguchi eds.), Lecture Notes in Computer Science, Vol. 861, pp. 55--59 pp., Springer Verlag, Berlin, 2009.
+
+%\bibitem{KM81} U.~Kulisch and W.~Miranker, ``Computer Arithmetic in Theory and Practice'', Academic Press, 1981.
+
+%\bibitem{Mas06}
+%M. Mas, M. Monserrat and J. Torrens, QL-implications versus D-implications, \emph{Kybernetika}, \textbf{42}(3) (2006) 351--366.
+%
+%\bibitem{Mas07}
+%M. Mas, M. Monserrat and J. Torrens, Two types of implications derived from uninorms, \emph{Fuzzy Sets and Systs.}
+% \textbf{158}(3) (2007), 2612--2626.
+
+\bibitem{Mas07a}
+M. Mas, M. Monserrat and E. Trillas, A survey on fuzzy implication functions,
+\emph{IEEE Trans. on Fuzzy Systs.} \textbf{15}(6) (2007), 1107--1121.
+
+\bibitem{MassanetT11} S. Massanet and J. Torrens, On a new class of fuzzy implications: H-Implications
+		 and generalizations, \emph{Inf. Sci.},\hspace{-0.1cm}\textbf{181}(11) \hspace{-0.05cm}(2011),\hspace{-0.05cm} 2111--2127.
+
+%\bibitem{Mas06}
+%M. Mas, M. Monserrat and J. Torrens, QL-implications versus
+%D-implications, \emph{Kybernetika}, \textbf{42} (3) (2006),
+%351--366.
+
+%\bibitem{Mas07}
+%M. Mas, M. Monserrat and J. Torrens, Two types of implications
+%derived from uninorms, \emph{Fuzzy Sets and Systs.}, \textbf{158}
+%(3) (2007),  2612--2626.
+
+%\bibitem{Mendel2001} J.~M. Mendel, ``Uncertain Rule-Based Fuzzy Logic Systs.: Introduction and New
+%  Directions''. \newblock Prentice Hall, Upper Saddle River, 2001.
+%
+%\bibitem{Mendel07} J. M. Mendel, Advances in Type-2 Fuzzy Sets and Systs., {\em Information Sciences}, {\bf 177} (1) (2007), 14--110.
+
+
+%\bibitem{Mitra05} S. Mitra, S. K. Pal, Fuzzy Sets in Pattern Recognition and Machine Intelligence, \emph{Fuzzy Sets
+%and Systs.}, \textbf{156} (2005), 381--386.
+
+%\bibitem{Moo62}
+%R. E. Moore, Interval Arithmetic and Automatic Error Analysis in Digital Computing, Stanford University, Stanford, 1962.
+
+\bibitem{Moo79}
+R. Moore, \emph{Methods and Applications of Interval Analysis}, Philadelphia: SIAM Press, 1979.
+
+\bibitem{Moo03}
+R. Moore, W. Lodwick, Interval analysis and fuzzy set theory, {\em
+Fuzzy Sets and Systs.}, {\bf 135} (1) (2003),
+5--9.
+
+%\bibitem{NKZ97} H.T. Nguyen,  V. Kreinovich, Q. Zuo, Interval-valued degrees of
+%belief: applications of interval computations to expert Systs.
+%and intelligent control,  \emph{International Journal of
+%Uncertainty, Fuzziness, and Knowledge-Based Systs.} \textbf{5}
+%(3) (1997), 317--358.
+%
+%\bibitem{Ped02}
+%Pedrycz, W. and G.~Succi, f{XOR} fuzzy logic networks, \emph{Soft
+%Computing}
+%  \textbf{7} (2002), 115--120.
+
+\bibitem{Rei07}
+R.H.S. Reiser, G.P. Dimuro, B.C. Bedregal and R.H.N. Santiago, Interval valued {QL}-implications, in Wollic (D. Leivant and R.  Queiroz, eds.),  LNCS, Vol. 4576, pp. 307--321, Springer, Berlim,
+2007.
+
+%\bibitem{Reiser08} R.H.S. Reiser, G.P. Dimuro,  B.R.C. Bedregal,  H. Santos and R.C. Bedregal,
+%S-implications on bounded lattices and the interval constructor,
+%\emph{TEMA} \textbf{9} (1) (2008),  143--154.
+
+\bibitem{Reiser-tema2009} R.H.S. Reiser, B.C. Bedregal, R.H.C. Santiago and G.P. Dimuro,
+Interval Valued {D}-implications, \emph{TEMA} \textbf{10} (1)
+(2009), 63--74.
+
+%\bibitem{RK09} I. Robandi, B. KharismaDesign of Interval Type$-2$ Fuzzy Logic Based Power System Stabilizer,
+%\emph{International Journal of Electrical Power and Energy Systs.
+%Engineering}, {\bf 2} (2) (2009), 73 -- 80.
+%
+%\bibitem{RK93}
+% D. Ruan and E. Kerre, Fuzzy implication operators and generalized fuzzy methods of cases,
+% \emph{Fuzzy Sets and Systs.}, \textbf{54} (1993),  23--37.
+
+ \bibitem{SBA06}
+R.H.N. Santiago, B.C. Bedregal and  B. Aci\'oly, Formal aspects of correctness and optimality in interval
+  computations, \emph{Formal Aspects of Computing}, \textbf{18} (2) (2006),  231--243.
+
+% \bibitem{Sambuc75}
+%R.~Sambuc, ``Fonctions $\phi$-floues. Application l'aide au Diagnostic en
+%  Pathologie Thyroidienne'', Ph.D. thesis, Univ. Marseille, Marseille, 1975.
+
+\bibitem{SHI08}
+Y.~Shi, B.Van Gasse, D.~Ruan and E. Kerre, On the first place
+anti\-tonicity in QL-implications,\hspace{-0.1cm} \emph{Fuzzy Sets and Sys.}
+\textbf{159}\hspace{-0.1cm}(2008),\hspace{-0.1cm} 2998--3013.
+
+%\bibitem{Tur95} I. Turksen, Fuzzy normal forms, \emph{Fuzzy Sets and Systs.} \textbf{69} (1995)
+% 319--346.
+
+\bibitem{TurKrei98}
+I. Turksen, V. Kreinovich and R. Yager, A new class of implications. Axioms of fuzzy implications revisited, \emph{Fuzzy Sets and Systs.}\textbf{100} (1998) 267--272.
+
+%\bibitem{Vandierendonck}
+%Vandierendonck, H., P.~Manet and J.~D. Legat, \emph{Application-specific
+%  reconfigurable {XOR}-indexing to eliminate cache conflict misses}, in:
+%  \emph{Proc. of the conference on Design, automation and test in Europe}
+%  (2006), pp. 357--362.
+
+
+\bibitem{Yag04}
+R. Yager, On some new classes of implication operators and their role in
+  approximate reasoning, \emph{Information Sciences}, \textbf{167} (2004),  193--216.
+
+\bibitem{Yag08} R. Yager, Level sets and the extension principle for interval
+valued fuzzy sets and its application to uncertainty measures,
+ \emph{Information Sciences} \textbf{178} (18) (2008), 3565--3576.
+
+\bibitem{Zad65}
+L.A. Zadeh, Fuzzy sets, \emph{Information and Control}, \textbf{8} (1965),  338--353.
+
+
+\bibitem{Zad75}
+L.A. Zadeh, The concept of a linguistic variable and its application to
+  approximate reasoning - {I}, \emph{Information Sciences}, \textbf{6} (1975),  199--249.}
+
+
+\end{thebibliography}
+
+%\medskip
+%% The data information below will be filled by AIMS editorial staff
+%Received September 8, 2006; accepted February 9, 2007.
+\end{document}
+
