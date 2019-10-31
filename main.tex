@@ -57,7 +57,7 @@
 
 \author{\scriptsize R. H. S. Reiser$^{1}$ \  B. R. C. Bedregal$^{2}$ \ R. H. N. Santiago$^{2}$ \ M. D. Amaral$^{3}$
 }
-\date{December 2020}
+\date{}
 
 \begin{document}
 
@@ -173,10 +173,20 @@ $\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}\{f(\vec{x})|\vec{x}\in
 
 \subsection{Interval-valued Aggregations on $\UU$(Guilherme)}
 
-\begin{definition}~\cite[Definition 5.1]{BT06b} \label{def-intAggregation}
+The concept of an aggregation function on $\UU$ is important in decision making problem and other aplications.
 
-A function  $\mathbb{T}(\mathbb{S}):\UU^2 \rightarrow \UU$ is an \textbf{interval t-norm}  (\textbf{t-conorm}) if it is commutative, associative, monotonic w.r.t. both, the product and inclusion orders\footnote{Such notion of monotonicity of t-(co)norms w.r.t an inclusion order is equivalent to the notion of t-representable t-(co)norms, as presented in~\cite{Des08}.}, and has $\mathbf{1}=[1,1]$ ($\mathbf{0}=[0,0]$) as the neutral element.
+
+\begin{definition}\label{def-intAggregation}
+Let  $n \in N, n \geq 2$. An Operation $\mathbb{A} : (\UU)^n \rightarrow \UU$ is called an interval-valued aggregation function if it is increasing with respect to the order $\leq$, i.e
 \end{definition}
+\begin{eqnarray}
+\forall_{x_i,y_i \in \UU} x_i \leq y_i \Rightarrow \mathbb{A}(x_1,...,x_n) \leq \mathbb{A}(y_1,...,y_n)
+\end{eqnarray}
+and
+\begin{eqnarray*}
+\mathbb{A}(0,...,0) = 0, \mathbb{A}(1,...,1) = 1.
+\end{eqnarray*}
+
 
 \subsubsection{Interval t-norms and interval t-conorms}\label{subsec-3b} 
 Notice that  a t-conorm (t-norm) is a function $S:U^2 \rightarrow U$ which is commutative,  associative, monotonic and has $0$ ($1$) as neutral element. In the following, denoting $\II_{U}=\mathbb{U}$, an extension of the t-conorm (t-norm) notion is considered, following the same approach introduced in~\cite{BT06b}.
