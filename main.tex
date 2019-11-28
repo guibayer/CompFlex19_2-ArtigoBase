@@ -1,5 +1,5 @@
-\documentclass[12pt]{article}
-\usepackage{sbc-template}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 \usepackage{url}
 %\usepackage[brazil]{babel}   
 \usepackage[utf8]{inputenc}  
@@ -9,6 +9,11 @@
 \usepackage{mdwtab}
 \usepackage{xcolor}
 \usepackage{empheq}
+\usepackage{comment}
+\usepackage{tabularx} 
+\usepackage{hhline}
+\usepackage{ctable}
+\usepackage{booktabs}
 
 %\renewcommand{\baselinestretch}{1.16}
 
@@ -110,95 +115,95 @@ For that, the paper is organized as follows: The main concepts of interval repre
 %
 %The main purpose of interval approach introduced in~\cite{BT06a,BT06b} has been to consider the interval fuzzy structures as those which are correct to perform inferences and analyze criteria which ensure their optimality in fuzzy systems. To this effect, the study of the main classes of interval valued fuzzy implications is considered, analyzing the satisfaction of properties similar to the respective classes of fuzzy implications.
 
-Consider $\UU_{[0,1]} = \{[x,y] \, | \, 0\leq x\leq y\leq 1\}$ as the family of intervals assuming the Interval-Valued Fuzzy Set. The projections $l,r:\UU_{[0,1]}\hspace{-0.05cm}\rightarrow\hspace{-0.05cm} [0,1]$ are defined by $l([x_1,x_2])=x_1$ and $r([x_1,x_2])=x_2$,
+Consider $U = \{x \, | \, 0\leq x\leq 1\}$ as the family of values assuming the Fuzzy Set, and $\UU = \{[x,y] \, | \, 0\leq x\leq y\leq 1\}$ as the family of intervals assuming the Interval-Valued Fuzzy Set. The projections $l,r:\UU\hspace{-0.05cm}\rightarrow\hspace{-0.05cm} U$ are defined by $l([x_1,x_2])=x_1$ and $r([x_1,x_2])=x_2$,
 respectively. For $X\in \mathbb{I}_{[a,b]}$,  $l(X)$ and $r(X)$ are also denoted by $\underline{X}$ and $\overline{X}$,
 respectively.  
 
-The binary operations \mbox{ $\vee, \wedge: {\UU_{[0,1]}}^2 \hspace{-0.05cm}\rightarrow\hspace{-0.05cm} \UU_{[0,1]}$} are  respectively given by
+The binary operations \mbox{ $\vee, \wedge: {\UU}^2 \hspace{-0.05cm}\rightarrow\hspace{-0.05cm} \UU$} are given by
 \begin{eqnarray}
 X_1 \wedge X_2 \hspace{-0.1cm}=\hspace{-0.1cm} [\min\{\underline{X_1},\underline{X_2}\},\hspace{-0.05cm} \min\{\overline{X_1},\overline{X_2}\}] \\
 X_1\vee X_2 \hspace{-0.1cm}=\hspace{-0.1cm} [\max\{\underline{X_1},\underline{X_2}\}, \max\{\overline{X_1},\overline{X_2}\}].
 \end{eqnarray}
 
-For $n$-uplas $(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(X_1, \ldots, X_n) \in {\UU_{[a,b]}}^n$, it holds that the subsets are in $[0,1]^n$: \\($i$) $l(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\underline{X_1}, \ldots, \underline{X_n})$ and $r(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\overline{X_1}, \ldots, \overline{X_n})$; \\($ii$) $\ast(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}[\ast(\underline{X_1}, \ldots, \underline{X_n}), \ast(\overline{X_1}, \ldots, \overline{X_n})]$, when $\ast \in \{\vee, \wedge\}$.
-When $F\hspace{-0.1cm}:\hspace{-0.1cm}{\UU_{[0,1]}}^n\lra \UU_{[0,1]}$, the functions $\underline{F},\overline{F}\hspace{-0.05cm}:\hspace{-0.05cm}[0,1]^n\lra [0,1]$ are respectively given by \begin{eqnarray}
-\underline{F}(x_1,\ldots,x_n) =l(F([x_1,x_1],\ldots,[x_n,x_n]))\\
-\overline{F}(x_1,\ldots,x_n)=r(F([x_1,x_1],\ldots,[x_n,x_n]))
+For $n$-uples $(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(X_1, \ldots, X_n) \in {\UU}^n$, it holds that the subsets are in $U^n$: \\
+($i$) $l(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\underline{X_1}, \ldots, \underline{X_n})$ and $r(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}(\overline{X_1}, \ldots, \overline{X_n})$; \\
+($ii$) $\ast(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}[\ast(\underline{X_1}, \ldots, \underline{X_n}), \ast(\overline{X_1}, \ldots, \overline{X_n})]$, when $\ast \in \{\vee, \wedge\}$.
+
+In this paper, degenerate intervals such as $[0,0]$ and $[1,1]$ are denoted as \textbf{0} and \textbf{1}, respectively, any other degenerate interval $[x,x]$ can also be denoted as $\boldsymbol{x}$. When $F\hspace{-0.1cm}:\hspace{-0.1cm}{\UU}^n\lra \UU$, the functions $\underline{F},\overline{F}\hspace{-0.05cm}:\hspace{-0.05cm}U^n\lra U$ are respectively given by \begin{eqnarray}
+\underline{F}(X_1,\ldots,X_n) =l(F(\boldsymbol{x_1},\ldots,\boldsymbol{x_n}))\\
+\overline{F}(X_1,\ldots,X_n)=r(F(\boldsymbol{x_1},\ldots,\boldsymbol{x_n}))
 \end{eqnarray}
 
-\subsection{Partial Orders on $\UU_{[0,1]}$}
+\subsection{Partial Orders on $\UU$}
 
-Let $\leq_{\mathbb{U}}$ and $\preceq_{\mathbb{U}} \, \subseteq \mathbb{U}^2$ be relations given by:
-\begin{enumerate}
-    \item[$\mathbb{O}1$]: $X\leq_{\mathbb{U}} Y \Leftrightarrow \underline{X} \leq \underline{Y} \mbox{ and }\overline{X} \leq \overline{Y}$  (Kulisch-Miranker);
-    \item[$\mathbb{O}2$]:  $X \unrhd_{\mathbb{U}} Y  \Leftrightarrow \overline{X}\leq \underline{Y}$, $\forall X,Y \in \mathbb{U}$ \footnote{with the reflexivity given by the equality of real intervals }.
-\end{enumerate}
+Consider the following partial orders on $\UU$:\\
+\indent \textbf{O1} \emph{Inclusion order}: $X\subseteq Y$ iff $\underline{X}\geq \underline{Y}$ and $\overline{X}\leq\overline{Y}$;\\
+\indent \textbf{O2} \emph{Product order}: $X\leq Y$ iff $\underline{X}\leq\underline{Y}$ and $\overline{X}\leq \overline{Y}$.
 
-Both partial orders $(\mathbb{U},\leq_{\mathbb{U}})$ and $(\mathbb{U},\unrhd_{\mathbb{U}})$ have  $\mathbf{0} = [0,0]$  and  $\mathbf{1}=[1,1]$ as the least and greatest elements, respectively. 
+%In addition, in the sense of domain theory, we also consider the induced-product relation: $X\hspace{-0.05cm}\lll\hspace{-0.05cm}Y$ iff $\underline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\underline{Y} \wedge \overline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\overline{Y}$,$\forall X,Y\hspace{-0.05cm}\in\hspace{-0.05cm}\II_U$. So, by~\cite[Def.~1]{BDSR11}, an interval function $F:{\II_U}^2 \rightarrow \II_U$ is $\lll$-increasing ($\lll$-decreasing) function  when it is an increasing (decreasing) function w.r.t both the product order and the induced-product order.
 
-
+Both partial orders $(\mathbb{U},\subseteq_{\mathbb{U}})$ and $(\mathbb{U},\leq_{\mathbb{U}})$ have  $\mathbf{0}$  and  $\mathbf{1}$ as the least and greatest elements, respectively. 
 
 A partial order $\leq_{\mathbb{U}}$ may be extended  to an admissible order on $\mathbb{U}$ meaning that it is linear and refines $\leq_{\mathbb{U}}$.
 
-\begin{definition}\cite{Bustince:2013}\label{def-linearorder}  The order $\preceq$ is called an admissible order on $\mathbb{U}$ if the following holds:
+\begin{definition}\cite{Bustince:2013}\label{def-linearorder} The order $\leq_{Adm}$ is called an admissible order on $\mathbb{U}$ if the following holds:
 \begin{description}
-\item [(i)] $\preceq$ is a linear order on $\mathbb{U}$,
-\item [(ii)] for all $X_1, X_2 \in \mathbb{U}$, $X_1 \preceq X_2$ whenever $X_1 \leq_{\mathbb{U}} X_2$.
+\item [(i)] $\leq_{Adm}$ is a linear order on $\mathbb{U}$,
+\item [(ii)] for all $X_1, X_2 \in \mathbb{U}$, $X_1 \leq_{Adm} X_2$ whenever $X_1 \leq_{\mathbb{U}} X_2$.
 \end{description}
 \end{definition}
 
-The degenerate intervals  $\mathbf{0}$ and $\mathbf{1}$ are the greatest and the smallest elements of $(\mathbb{U}, \preceq)$, respectively~\cite{Bustince:2013}.
+The degenerate intervals  $\mathbf{0}$ and $\mathbf{1}$ are the greatest and the smallest elements of $(\mathbb{U}, \leq_{Adm})$, respectively~\cite{Bustince:2013}.
 
+Here are some examples of admissible orders as shown in \cite{pkekala2018uncertainty}:
 
 \begin{itemize}
     \item The Xu and Yager order:
-    \begin{empheq}[left=\lbrack\underline{x}{,}\overline{x}\rbrack\leqslant_{XY}\lbrack\underline{y}{,}\overline{y}\rbrack\iff\empheqlbrace]{align}
-        &\underline{x}+\overline{x}<\underline{y}+\overline{y}\\
-        &\underline{x}+\overline{x}=\underline{y}+\overline{y}\ \ and\ \ \overline{x}-\underline{x}\leqslant\overline{y}-\underline{y}
+    \begin{empheq}[left=X\hspace{-0.05cm}\leqslant_{XY}\hspace{-0.05cm}Y\hspace{-0.1cm}\Leftrightarrow\hspace{-0.1cm}\empheqlbrace]{align*}
+        &\underline{X}+\overline{X}<\underline{Y}+\overline{Y}\\
+        &\underline{X}+\overline{X}=\underline{Y}+\overline{Y}\ \ \hspace{-0.1cm}and\hspace{-0.1cm}\ \ \overline{X}-\underline{X}\leqslant\overline{Y}-\underline{Y}
     \end{empheq}
-    \item The first lexicographical order (with respect to the first variable):
-    \begin{empheq}[left=\lbrack\underline{x}{,}\overline{x}\rbrack\leqslant_{Lex1}\lbrack\underline{y}{,}\overline{y}\rbrack\iff\empheqlbrace]{align}
-        &\underline{x}<\underline{y}\\
-        &\underline{x}=\underline{y}\ \ and\ \ \overline{x}\leqslant\overline{y}
+    \item The first lexicographical order:
+    \begin{empheq}[left=X\hspace{-0.05cm}\leqslant_{Lex1}\hspace{-0.05cm}Y\Leftrightarrow\empheqlbrace]{align*}
+        &\underline{X}<\underline{Y}\\
+        &\underline{X}=\underline{Y}\ \ and\ \ \overline{X}\leqslant\overline{Y}
     \end{empheq}
-    \item The second lexicographical order (with respect to the second variable):
-    \begin{empheq}[left=\lbrack\underline{x}{,}\overline{x}\rbrack\leqslant_{Lex2}\lbrack\underline{y}{,}\overline{y}\rbrack\iff\empheqlbrace]{align}
-        &\overline{x}<\overline{y}\tag{5}\\
-        &\overline{x}=\overline{y}\ \ and\ \ \underline{x}\leqslant\underline{y}\tag{6}
-    \end{empheq}
-    \item The $\alpha\beta$ order:
-    \begin{empheq}[left=\lbrack\underline{x}{,}\overline{x}\rbrack\leqslant_{Lex2}\lbrack\underline{y}{,}\overline{y}\rbrack\iff\empheqlbrace]{align}
-        &\overline{x}<\overline{y}\tag{5}\\
-        &\overline{x}=\overline{y}\ \ and\ \ \underline{x}\leqslant\underline{y}\tag{6}
+    \item The second lexicographical order:
+    \begin{empheq}[left=X\hspace{-0.05cm}\leqslant_{Lex2}\hspace{-0.05cm}Y\Leftrightarrow\empheqlbrace]{align*}
+        &\overline{X}<\overline{Y}\\
+        &\overline{X}=\overline{Y}\ \ and\ \ \underline{X}\leqslant\underline{Y}
     \end{empheq}
 \end{itemize}
 
-%Consider the partial orders on the unit interval $U=[0,1]$:\\
-%\indent \textbf{O1} \emph{Inclusion order}: $X\subseteq Y$ iff $\underline{X}\geq \underline{Y}$ and $\overline{X}\leq\overline{Y}$;\\
-
-%\indent \textbf{O2} \emph{Product order}: $X\leq Y$ iff $\underline{X}\leq\underline{Y}$ and $\overline{X}\leq \overline{Y}$.\\
-
-%\indent In addition, in the sense of domain theory, we also consider the induced-product relation: $X\hspace{-0.05cm}\lll\hspace{-0.05cm}Y$ iff $\underline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\underline{Y} \wedge \overline{X}\hspace{-0.05cm}<\hspace{-0.05cm}\overline{Y}$,$\forall X,Y\hspace{-0.05cm}\in\hspace{-0.05cm}\II_U$.
-%So, by~\cite[Def.~1]{BDSR11}, an interval function $F:{\II_U}^2 \rightarrow \II_U$ is $\lll$-increasing ($\lll$-decreasing) function  when it is an increasing (decreasing) function w.r.t both the product order and the induced-product order.
-
-\subsection{Representability on $\mathbb{U}_{[0,1]}$} (Eduardo   arrumar o domínio dos operadores) 
+\subsection{Representability on $\mathbb{U}$}% (Eduardo   arrumar o domínio dos operadores) 
+%\cite{Des08} usar essa referencia aula pra t-(co)normas intervalares 18/11
 
 An interval $X \in \UU_{[0,1]}$ is said to be an interval representation of a real number $\alpha$ if $\alpha \in X$.
 Considering two interval representations $X$ and $Y$ of a real number $\alpha$,  $X$ is a better representation of
 $\alpha$ than $Y$ if $X$ is narrower than $Y$, that is,  if $X\subseteq Y$.
 
-\begin{definition}~\cite[Section 1]{SBA06}\label{d1} A function $F:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[c,d]}$ is an \textbf{interval
-representation} of a function $f:[a,b]^n\lra [c,d]$ if, for each
-$\vec{X}= (X_1, \ldots, X_n)\in {\mathbb{I}_{a,b}}^n$ and $\vec{x}\in \vec{X}$, $f(\vec{x})\in
+\begin{definition}~\cite[Section 1]{SBA06}\label{d1} A function $F:{\mathbb{U}}^n\lra \mathbb{U}$ is an \textbf{interval
+representation} of a function $f:U^n\lra U$ if, for each
+$\vec{X}= (X_1, \ldots, X_n)\in {\mathbb{U}}^n$ and $\vec{x}\in \vec{X}$, $f(\vec{x})\in
 F(\vec{X})$.
 \end{definition}
 
-So, an interval function $F:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$ is a \emph{better
-interval representation} of $f:[a,b]^n\lra [a,b]$ than $G:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$, denoted by $G\hspace{-0.05cm}\sqsubseteq\hspace{-0.05cm}
-F$, if for each $\vec{X}\hspace{-0.1cm}\in\hspace{-0.1cm}{\mathbb{I}_{[a,b]}}^n$, the inclusion $F(\vec{X})\hspace{-0.1cm}\subseteq\hspace{-0.1cm}G(\vec{X})$ holds.
+%\begin{definition}~\cite[Section 1]{SBA06}\label{d1} A function $F:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{U}_{[c,d]}$ is an \textbf{interval
+%representation} of a function $f:[a,b]^n\lra [c,d]$ if, for each
+%$\vec{X}= (X_1, \ldots, X_n)\in {\mathbb{U}_{a,b}}^n$ and $\vec{x}\in \vec{X}$, $f(\vec{x})\in
+%F(\vec{X})$.
+%\end{definition}
 
-\begin{definition}~\cite[Section 2]{SBA06}\label{d2}  The {\bf best interval representation} ({\bf canonical representation}) of a real function $f:[a,b]^n\lra [a,b]$, is the interval function
-$\widehat{f}:{\mathbb{I}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$ defined by\vspace{-0.2cm}
+So, an interval function $F:{\mathbb{U}}^n\lra \mathbb{U}$ is a \emph{better
+interval representation} of $f:U\lra U$ than $G:{\mathbb{U}}^n\lra \mathbb{U}$, denoted by $G\hspace{-0.05cm}\sqsubseteq\hspace{-0.05cm}
+F$, if for each $\vec{X}\hspace{-0.1cm}\in\hspace{-0.1cm}{\mathbb{U}}^n$, the inclusion $F(\vec{X})\hspace{-0.1cm}\subseteq\hspace{-0.1cm}G(\vec{X})$ holds.
+
+%So, an interval function $F:{\mathbb{U}_{[a,b]}}^n\lra \mathbb{I}_{[a,b]}$ is a \emph{better
+%interval representation} of $f:[a,b]^n\lra [a,b]$ than $G:{\mathbb{U}_{[a,b]}}^n\lra \mathbb{U}_{[a,b]}$, denoted by $G\hspace{-0.05cm}\sqsubseteq\hspace{-0.05cm}
+%F$, if for each $\vec{X}\hspace{-0.1cm}\in\hspace{-0.1cm}{\mathbb{U}_{[a,b]}}^n$, the inclusion $F(\vec{X})\hspace{-0.1cm}\subseteq\hspace{-0.1cm}G(\vec{X})$ holds.
+
+\begin{definition}~\cite[Section 2]{SBA06}\label{d2}  The {\bf best interval representation} ({\bf canonical representation}) of a real function $f:U^n\lra U$, is the interval function
+$\widehat{f}:{\mathbb{U}}^n\lra \mathbb{U}$ defined by\vspace{-0.2cm}
 \begin{equation}\label{eq-br}\vspace{-0.1cm}
 \widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}[\inf \{f(\vec{x})|\vec{x} \in \vec{X}\}, \sup \{f(\vec{x})|\vec{x} \in \vec{X}\}].
 \end{equation}
@@ -209,14 +214,119 @@ The interval function $\widehat{f}$ is well defined and for any other interval r
 $f$. Thus, $\widehat{f}$ has the \emph{optimality property} of interval algorithms mentioned by Hickey et
 al.~\cite{Hic01}, when it is seen as an algorithm to compute a real function $f$.
 
-By~\cite[Sect.~2.2]{SBA06}, for an interval function $f:[a,b]^n \lra [a,b]$, the following statements are equivalent: (i) $f$ is continuous; (ii) $\widehat{f}$ is Scott continuous; (iii)
-$\widehat{f}$ is Moore continuous~\cite{SBA06}. So, when $f$ is continuous in usual sense,
-$\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}\{f(\vec{x})|\vec{x}\in
-\vec{X}\}\hspace{-0.05cm}=\hspace{-0.05cm}f(\vec{X})$, $\forall \vec{X}\hspace{-0.05cm}\in\hspace{-0.05cm}{\mathbb{I}_{[a,b]}}^n$.
+By~\cite[Sect.~2.2]{SBA06}, for an interval function $f:U^n \lra [a,b]$, the following statements are equivalent:
+
+(i) $f$ is continuous;
+
+(ii) $\widehat{f}$ is Scott continuous;
+
+(iii) $\widehat{f}$ is Moore continuous~\cite{SBA06}.
+
+So, when $f$ is continuous in usual sense, $\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}\{f(\vec{x})|\vec{x}\in\vec{X}\}\hspace{-0.05cm}=\hspace{-0.05cm}f(\vec{X})$, $\forall \vec{X}\hspace{-0.05cm}\in\hspace{-0.05cm}{\mathbb{U}}^n$.
+
+%Parte a acrescentar - Exemplo 2.1 Artigo enviado pelo guilherme
+
+%{Exemplo 2.1}
+   
+%Let T and T' be two two t-norms on $U$. Then the mapping $T_{T,T'}$: $\mathbb{U}^2 \rightarrow \mathbb{U}$ defined by, for all x, y in $\mathbb{U}$, 
+
+%${T_{T,T'}(x,y)=[T(x1,y1),T'(x2,y2)]}$
+
+%is a t-norm on $\mathbb{U}$ if and only if $T(x, y) T' \leq (x, y)$, for all $x, y$ in $U$, and we call this a t-representable t-norm on $U$ . The t-norms $T$ and $T$  are called the representants of $T_{T,T'}$. For any t-representable t-norm $T_{T,T'}$  it holds that
+%$T_{T,T'} ([0U, 1U], [0U, 1U]) = [0U, 1U].$
+
+
+%Not all t-norms on $\mathbb{U}$ are t-representable. Indeed, if T is a t-norm on $\mathbb{U}$, then the mapping $T_T$ : $\mathbb{U}^2 \rightarrow U$ defined by, for all x, y in $\mathbb{U}$ ,
+
+%$T_T (x, y) = [T (x1, y1),sup(T (x1, y2), T (x2, y1))]$
+
+%is a t-norm on $\mathbb{U}$ , called a pseudo-t-representable t-norm. For any pseudo-t-representable t-norm $T_T$ we have that
+%$T_T ([0U, 1U], [0U, 1U]) = [0U, 0U]$, which shows that $T_T$ is not t-representable.
+
+%Let T be a t-norm on $U$ and t ∈ $U$. Define the mapping $T_{T,t}$ : $ \mathbb{U}^2 \rightarrow \mathbb{U}$ by, for all x, y in $\mathbb{U}$,
+
+%$T_{T,_t}(x, y) = [T (x1, y1),sup(T (t, T (x2, y2)), T (x1, y2), T (x2, y1))]$.
+
+%Then $T_T$ ,t is a non-t-representable t-norm on $\mathbb{U}$ if $t \neq 1_U$ (this is shown similarly as Theorem 5 in [colocar referência] which proves this fact in the case that U = ([0, 1], )), called a generalized pseudo-t-representable t-norm.
+%Note that $T_{T,t}([0U, 1U], [0U, 1U]) = [0U, t]$. If $t = 0_U$, then $T_{T,t} = T_T$ is a pseudo-t-representable t-norm; if t = 1U, then $T_{T,t} = T_{T,T}$ is a t-representable t-norm.
+
+
+%Fim da parte a acrescentar
 
 
 %Moore and Scott continuities  are the two most common continuity
 %notions used in interval mathematics.
+
+% ALINHAMENTOS DAS COLUNAS DAS TABELAS
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+% Tabela 1
+\begin{table*}[h]
+ \caption{Definition of T-norms and T-conorms and their respectives interval extensions using the classes $\mathbb{T}^*_T$ and $\mathbb{S}^*_S$.}
+\begin{tabularx}{\textwidth}{R{0.1\textwidth}@{}@{}L{0.31\textwidth}R{0.1\textwidth}@{}@{}C{0.02\textwidth}@{}@{}L{0.38\textwidth}}
+\addlinespace
+\toprule
+\multicolumn{2}{c}{T$(x,y)$}   & \multicolumn{3}{c}{$\mathbb{T}^*_{T}(X,Y)=[T(\underline{X},\underline{Y}),T(\overline{X},\overline{Y})]$} \\ \midrule
+T$_{M}(x,y)$ & \ $=min(x,y)$  & $\mathbb{T}^*_{T_M}(X,Y)$ &=& $[min(\underline{X},\underline{Y}),min(\overline{X},\overline{Y})]$ \\ 
+T$_{P}(x,y)$ & \ $=xy$  & $\mathbb{T}^*_{T_P}(X,Y)$ &=& $[\underline{X}\underline{Y},\overline{X}\overline{Y}]$ \\ 
+T$_{LK}(x,y)$ & \ $=max(0,x+y-1)$ & $\mathbb{T}^*_{T_{LK}}(X,Y)$ &=& $[max(0,\underline{X}+\underline{Y}-1),max(0,\overline{X}+\overline{Y}-1)]$  \\ 
+T$_{D}(x,y)$ & \ $=\left\{\begin{aligned}
+&0&&\text{if}\ \ x,y \in [0,1)\\
+&min(x,y)&&\text{otherwise}\end{aligned}\right.$ & $\mathbb{T}^*_{T_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&\boldsymbol{0}&&\text{if}\ \overline{X},\overline{Y} \in [0,1) \\
+&[min(\underline{X}, \underline{Y}), min(\overline{X}, \overline{Y})]&&\text{if}\ \ [max(\underline{X}, \underline{Y}), max(\overline{X}, \overline{Y})] = \boldsymbol{1}\\
+&[0, min(\overline{X}, \overline{Y})]&&\text{otherwise}\end{aligned}\right.$  \\
+\addlinespace
+\toprule
+\multicolumn{2}{c}{S(x,y)}   & \multicolumn{3}{c}{$\mathbb{S}^*_{S}(X,Y)=[S(\underline{X},\underline{Y}),S(\overline{X},\overline{Y})]$} \\ \midrule
+S$_{M}(x,y)$ & \ $=max(x,y)$ & $\mathbb{S}^*_{S_M}(X,Y)$ &=& $[max(\underline{X},\underline{Y}),max(\overline{X},\overline{Y})]$  \\ 
+S$_{P}(x,y)$ & \ $=x+y-xy$ & $\mathbb{S}^*_{S_P}(X,Y)$ &=& $[\underline{X}+\underline{Y}-\underline{X}\underline{Y},\overline{X}+\overline{Y}-\overline{X}\overline{Y}]$  \\ 
+S$_{LK}(x,y)$ & \ $=min(x+y,1)$  & $\mathbb{S}^*_{S_{LK}}(X,Y)$ &=& $[min(\underline{X}+\underline{Y},1),min(\overline{X}+\overline{Y},1)]$  \\ 
+S$_{D}(x,y)$ & \ $=\left\{\begin{aligned}
+&1&&\text{if}\ \ x,y \in (0,1]\\
+&max(x,y)&&\text{otherwise}\end{aligned}\right.$
+& $\mathbb{S}^*_{S_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&\boldsymbol{1}&&\text{if}\ \ \underline{X},\underline{Y} \in (0,1]\\
+&[max(\underline{X},\underline{Y}),max(\overline{X},\overline{Y})]&&\text{if}\ \ [min(\underline{X},\underline{Y}),min(\overline{X},\overline{Y})] = \boldsymbol{0}\\
+&[max(\underline{X},\underline{Y}),1]&&\text{otherwise}\end{aligned}\right.$  \\ 
+\end{tabularx}
+\end{table*}
+% Tabela 2
+\begin{table*}[h]
+\caption{Definition of T-norms and T-conorms interval extensions using the classes $\mathbb{T}_T$ ($\mathbb{S}_S$) and $\mathbb{T}'_T$ ($\mathbb{S}'_S$).}
+\begin{tabularx}{\textwidth}{R{0.1\textwidth}@{}@{}C{0.02\textwidth}@{}@{}L{0.35\textwidth}R{0.1\textwidth}@{}@{}C{0.02\textwidth}@{}@{}L{0.38\textwidth}}
+\addlinespace
+\toprule
+\multicolumn{3}{c}{$\mathbb{T}_{T}(X,Y)=[T(\underline{X},\underline{Y}),max(T(\underline{X},\overline{Y}),T(\overline{X},\underline{Y}))]$}   & \multicolumn{3}{c}{$\mathbb{T}'_{T}(X,Y)=[min(T(\underline{X},\overline{Y}),T(\overline{X},\underline{Y})),T(\overline{X},\overline{Y})]$} \\ \midrule
+$\mathbb{T}_{T_M}(X,Y)$ &=& $[min(\underline{X},\underline{Y}),max(min(\underline{X},\overline{Y}),min(\overline{X},\underline{Y}))]$  & $\mathbb{T}'_{T_M}(X,Y)$ &=& $[min(min(\underline{X},\overline{Y}),min(\overline{X},\underline{Y})),min(\overline{X},\overline{Y})]$ \\ 
+$\mathbb{T}_{T_P}(X,Y)$ &=& $[\underline{X}\underline{Y},max(\underline{X}\overline{Y},\overline{X}\underline{Y})]$  &$\mathbb{T}'_{T_P}(X,Y)$ &=& $[min(\underline{X}\overline{Y},\overline{X}\underline{Y}),\overline{X}\overline{Y}]$ \\  
+$\mathbb{T}_{T_{LK}}(X,Y)$ &=& $[max(0,\underline{X}+\underline{Y}-1),max(max(0,\underline{X}+\overline{Y}-1),$ $max(0,\overline{X}+\underline{Y}-1))]$ & $\mathbb{T}'_{T_{LK}}(X,Y)$ &=& $[min(max(0,\underline{X}+\overline{Y}-1),max(0,\overline{X}+\underline{Y}-1)),$ $max(0,\overline{X}+\overline{Y}-1)]$ \\
+$\mathbb{T}_{T_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&\boldsymbol{0}&&\text{if}\ \ \overline{X}, \overline{Y} \in [0,1)\\
+& [0, max(\underline{X}, \underline{Y})]&&\text{if } \parbox[t]{2.5cm}{ {\underline{X},\underline{Y}} \in [0,1)\And max(\overline{X}, \overline{Y}) = 1}\\
+&[min(\underline{X}, \underline{Y}), min(\overline{X}, \overline{Y})]&&\text{otherwise}\end{aligned}\right.$ & $\mathbb{T}'_{T_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&\boldsymbol{0}&&\text{if}\ \ \overline{X}, \overline{Y} \in [0,1)\\
+&[0, min(\overline{X}, \overline{Y})&&\text{if}\ \ max(\overline{X}, \overline{Y}) = 1 \And min(\overline{X}, \overline{Y}) < 1\\
+& [min(\underline{X}, \underline{Y}), 1] &&\text{otherwise}\end{aligned}\right.$  \\
+\addlinespace
+\toprule
+\multicolumn{3}{c}{$\mathbb{S}_{S}(X,Y)=[min(S(\overline{X},\underline{Y}),S(\underline{X},\overline{Y})),S(\overline{X},\overline{Y})]$}   & \multicolumn{3}{c}{$\mathbb{S}'_{S}(X,Y)=[S(\overline{X},\overline{Y}),max(S(\underline{X},\overline{Y}),S(\overline{X},\underline{Y}))]$} \\ \midrule
+$\mathbb{S}_{S_M}(X,Y)$ &=& $[max(\underline{X},\underline{Y}),max(max(\underline{X},\overline{Y}),max(\overline{X},\underline{Y}))]$  & $\mathbb{S}'_{S_M}(X,Y)$ &=& $[max(\underline{X},\underline{Y}),max(max(\underline{X},\overline{Y}),max(\overline{X},\underline{Y}))]$ \\
+$\mathbb{S}_{S_P}(X,Y)$ &=& $[min(\overline{X}+\underline{Y} - \overline{X} \underline{Y}, \underline{X} + \overline{Y} - \underline{X} \overline{Y}), \overline{X} + \overline{Y} - \overline{X} \overline{Y}]$ & $\mathbb{S}'_{S_P}(X,Y)$ &=& $[\underline{X}\underline{Y},max(\underline{X}\overline{Y},\overline{X}\underline{Y})]$ \\
+$\mathbb{S}_{S_{LK}}(X,Y)$ &=& $[min(\overline{X} + \underline{Y}, \underline{X} + \overline{Y}, 1), min(\overline{X} + \overline{Y}, 1)]$  & $\mathbb{S}'_{S_{LK}}(X,Y)$ &=& $[min(\overline{X}+\overline{Y},1),max(min(\underline{X}+\overline{Y},1),$ $min(\overline{X}+\underline{Y},1))]$  \\
+$\mathbb{S}_{S_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&\boldsymbol{1}&&\text{if}\ \ \underline{X}, \underline{Y} \in (0,1]\\
+&[max(\underline{X}, \underline{Y}), max(\overline{X}, \overline{Y})&&\text{if}\ \ min(\overline{X}, \overline{Y}) = 0\\
+&[min(\overline{X}, \overline{Y}),1]&&\text{if}\ \ \underline{X}=0 \And \underline{Y}=0\\
+&[\overline{Y}, 1]&&\text{if}\ \ \parbox[t]{2.5cm}{\underline{X}=0 \And \overline{X},\underline{Y}, \overline{Y} \in (0,1]}\\
+&[\overline{X}, 1]&&\text{otherwise}\end{aligned}\right.$
+%ESTOU MEXENDO AQUI... Matheus
+& $\mathbb{S}'_{S_D}(X,Y)$ &=& $\left\{\begin{aligned}
+&?&&\text{if}\ \ ?\\
+&?&&\text{otherwise}\end{aligned}\right.$  \\ 
+\end{tabularx}
+\end{table*}
 
 \section{Interval fuzzy connectives}\label{sec-4}
 
@@ -227,6 +337,7 @@ $\widehat{f}(\vec{X})\hspace{-0.05cm}=\hspace{-0.05cm}\{f(\vec{x})|\vec{x}\in
 The concept of an aggregation function on $\UU$ is important in decision making problem and other applications.
 
 
+\begin{comment}
 \begin{definition}\label{def-intAggregation}
 Let  $n \in N, n \geq 2$. An Operator $\mathbb{A} : (\UU)^n \rightarrow \UU$ is called an interval-valued aggregation function if it is increasing with respect to the order $\leq$, i.e
 \begin{eqnarray}
@@ -237,9 +348,10 @@ and
 \mathbb{A}(0,...,0) = 0, \mathbb{A}(1,...,1) = 1.
 \end{eqnarray*}
 \end{definition}
+\end{comment}
 
 \begin{definition}\label{def-intAgDecomposable}
-Let  $n \in N, n \geq 2$. An Operation $\mathbb{F} : (\UU)^n \rightarrow \UU$ is called decomposable if there exist operations $F_1, F_2 : [0,1]^n \rightarrow [0, 1]$ such that for all $x_1,...,x_n \in \UU$
+Let  $n \in N, n \geq 2$. An Operation $\mathbb{F} : \UU^n \rightarrow \UU$ is called decomposable if there exist operations $F_1, F_2 : \UU^n \rightarrow \UU$ such that for all $x_1,...,x_n \in \UU$
 \begin{eqnarray}
 \mathbb{F}(x_1,...,x_n) = [F_1(\underline{x}_1,..., \underline{x}_n), F_2(\overline{x}_1,..., \overline{x}_n)]
 \end{eqnarray}
@@ -248,19 +360,19 @@ Let  $n \in N, n \geq 2$. An Operation $\mathbb{F} : (\UU)^n \rightarrow \UU$ is
 Note that the special case of decomposable operation is a representable intervar-valued aggregation with respect to $\leq$.
 
 \begin{definition}\label{def-intAgRepresentable}
-An interval-valued aggregation function $\mathbb{A} : (\UU)^n \rightarrow \UU$ is called representable interval-valued aggregation if there exist aggregation functions $A_1, A_2 : [0, 1]^n \rightarrow [0, 1]$ such that
+An interval-valued aggregation function $\mathbb{A} : \UU^n \rightarrow \UU$ is called representable interval-valued aggregation if there exist aggregation functions $A_1, A_2 : \UU^n \rightarrow \UU$ such that for all $x_1,...,x_n \in \UU$
 \begin{eqnarray}
-\mathbb{A}(x_1,...,x_n) = [A_1(\underline{x}_1,..., \underline{x}_n), A_2(\overline{x}_1,..., \overline{x}_n)]
+\mathbb{A}(X_1,...,X_n) = [A_1(\underline{X}_1,..., \underline{X}_n), A_2(\overline{X}_1,..., \overline{X}_n)]
+%\forall  X_1,...,X_n \in \UU
 \end{eqnarray}
-for all $x_1,...,x_n \in \UU$
 \end{definition}
 
 Moreover, an aggregation function is decomposable if and only if it is representable, as the next result shows.
 
 \begin{theorem}\label{teo-S-imp-BIR}
-An operation $\mathbb{A} : (\UU)^n \rightarrow \UU$ is a representable interval-valued aggregation function with respect to $\leq_\UU$ if and only if there exist aggregation functions $A_1, A_2 : [0, 1]^n \rightarrow [0, 1]$ such that for all $x_1,...,x_n \in \UU$ and $A_1 \leq A_2$
+An operation $\mathbb{A} : \UU^n \rightarrow \UU$ is a representable interval-valued aggregation function with respect to $\leq_\UU$ if and only if there exist aggregation functions $A_1, A_2 : \UU^n \rightarrow \UU$ such that for all $x_1,...,x_n \in \UU$ and $A_1 \leq A_2$
 \begin{eqnarray}
-\mathbb{A}(x_1,...,x_n) = [A_1(\underline{x}_1,..., \underline{x}_n), A_2(\overline{x}_1,..., \overline{x}_n)]
+\mathbb{A}(X_1,...,X_n) = [A_1(\underline{X}_1,..., \underline{X}_n), A_2(\overline{X}_1,..., \overline{X}_n)]
 \end{eqnarray}
 \end{theorem}
 
@@ -271,10 +383,21 @@ Notice that  a t-conorm (t-norm) is a function $S:U^2 \rightarrow U$ which is co
 A function  $\mathbb{T}(\mathbb{S}):\UU^2 \rightarrow \UU$ is an \textbf{interval t-norm}  (\textbf{t-conorm}) if it is commutative, associative, monotonic w.r.t. both, the product and inclusion orders\footnote{Such notion of monotonicity of t-(co)norms w.r.t an inclusion order is equivalent to the notion of t-representable t-(co)norms, as presented in~\cite{Des08}.}, and has $\mathbf{1}=[1,1]$ ($\mathbf{0}=[0,0]$) as the neutral element.
 \end{definition}
 
+\subsubsection{Natural extensions of t-(co)norms}
+
+
+According with referenciar XXXX we have the following natural extensions related to t-norms and t-conorms.
+
+INSERIR AQUI
+
+
+The next proposition is particular case of Example  XXX, taking $T_1=T_2$:
+
 \begin{proposition}~\cite[Theorem 5.1]{BT06b}\label{pro-it-norm}
 If  $S$ ($T$) is a t-conorm  then $\widehat{S} (\widehat{T}):\UU^2 \rightarrow \UU$ is an interval t-conorm (t-norm).
 And, a characterization of $\widehat{S}$ ($\widehat{T}$) can be expressed by:
 %%%
+
 \begin{equation}\label{eq-int-s}
 \widehat{S}(X,Y)=[S(\underline{X},\underline{Y}),
 S(\overline{X},\overline{Y})],
@@ -286,77 +409,61 @@ T(\overline{X},\overline{Y})]
 
 
 \subsection{Interval fuzzy negation (Julia)}\label{subsec-4c} 
-
-A \emph{fuzzy negation} $N:U \rightarrow U$ is one function of aggregation that verifies properties following:
-
-\begin{description}
-\item [\textbf{N1:}]  The boundary conditions are satisfy, i.e., $N(0) = 1$ and $N(1) = 0$;
-
-\item [\textbf{N2:}] It is a non-increasing function, i.e., if $x \geq y$ then $N(x)\leq N(y)$, $\forall x,y \in U$;
-
-\item [\textbf{N3:}] A negation $N$ is called a strict negation if, additionally, $N$ is continuous and strict decreasing; 
-
-\item [\textbf{N4:}] $N(N(x))=x$, $\forall x \in U$.
-\end{description}
-
-In addition, fuzzy negations satisfying the involutive property, represented by \textbf{N4}, are called \emph{strong fuzzy negations} and constitute a subclass of strict negations. 
-The most important and most widely used strong negation is the standard negation $N_{s}:U \rightarrow U$ given by $N_{s}(x)=1-x$. One example of the not strong fuzzy negation is $N(x) = 1- x^{2}$, but which is strict. See~\cite{BBS03}, for more details.
-\\
-%When the t-norm is considered, it is also possible to establish a partial order on fuzzy negations in a natural way,
-%i.e., given two fuzzy negations $N_1$ and $N_2$:
-%\begin{itemize}
-%\item $N_1\leq N_2$ if f or each $x\in U$, $N_1(x)\leq N_2(x)$.
-%\end{itemize}
-%
-%\begin{remark}\label{rem-neg}
-%If $N_1\leq N_2$ and $x\geq y$ then $N_1(x)\leq N_2(y)$.
-%\end{remark}
-\begin{definition}~\cite[Def.~4.1]{BT06b}\label{theo-neg}
-An interval function  $\mathbb{N}:\mathbb{U} \lra  \mathbb{U}$ is an \textbf{interval fuzzy negation} if, for all $X,Y \in\mathbb{U}$, it holds that:
+%Colocar exemplo e/ou definição da negação Nk 
+% N_k(x)=[(1-\overline(x))^2, (1-\underline(x))^2], 
+An interval function  $\mathbb{N}:\mathbb{U} \lra  \mathbb{U}$ is an \textbf{interval fuzzy negation} if, for all $X,Y \in\mathbb{U}$, it holds that~\cite[Def.~4.1]{BT06b}:
 \begin{description}
 \item[ \textbf{$\mathbb{N}$1:}] $\mathbb{N}(\mathbf{0}) = \mathbf{1}$ and $\mathbb{N}(\mathbf{1}) = \mathbf{0}$; 
 
-\item[ \textbf{$\mathbb{N}$2:}] If $X \geq Y$ then $\mathbb{N}(X)\leq \mathbb{N}(Y)$; 
+\item[ \textbf{$\mathbb{N}$2a:}] If $X \geq Y$ then $\mathbb{N}(X)\leq \mathbb{N}(Y)$; 
 
-\item[ \textbf{$\mathbb{N}$3:}] If $X\subseteq Y$ then $\mathbb{N}(X)\subseteq \mathbb{N}(Y)$.
-
-\item[ \textbf{$\mathbb{N}$4:}] $\mathbb{N}(\mathbb{N}(X)) = X$, $\forall X \in \mathbb{U}$.
+\item[ \textbf{$\mathbb{N}$2b:}] If $X\subseteq Y$ then $\mathbb{N}(X)\subseteq \mathbb{N}(Y)$.
 \end{description}
 
-Moreover, if $\mathbb{N}$ also meets the involutive property represented by \textbf{$\mathbb{N}$4}, then is a \textbf{strong interval fuzzy negation}.
-\end{definition}
+Moreover, if $\mathbb{N}$ also respect  the involutive  property then is a \textbf{strong  interval  fuzzy  negation}, that meets
+ \textbf{$\mathbb{N}$3:} $\mathbb{N}(\mathbb{N}(X)) = X$, $\forall X \in \mathbb{U}$.
+
 By~\cite[Theorem4.1.1]{BT06b}, if $N:U \lra U$  be a fuzzy negation, $\widehat{N}$  is an
 interval fuzzy negation. In addition, if $N$ is a strong fuzzy
-negation then $\widehat{N}$ is a strong interval fuzzy negation. And, a characterization of $\widehat{N}$ is given by $\widehat{N}(X)=[N(\overline{X}),N(\underline{X})]$.\vspace{-0.3cm}
+negation then $\widehat{N}$ is a strong interval fuzzy negation. And, a characterization of $\widehat{N}$ is given by $\widehat{N}(X)=[N(\overline{X}),N(\underline{X})]$.%\vspace{-0.3cm}
+
+%lack to include the examples
+\begin{example}~\cite{baczynski2010ql} Some examples of interval fuzzy negation can be enumerates:
+\begin{enumerate}
+ \item $\mathbb{N}_C(X)=[1-\overline{X}, 1-\underline{X}]$.
+ \item $\mathbb{N}_k(X)=[(1-\overline{X})^2, (1-\underline{X})^2]$.
+ \item $\mathbb{N}_{D1}(X)=
+ \left\{\begin{aligned}
+ &\mathbf{1} &&\text{if} \ \   X=\mathbf{0}\\
+ &\mathbf{0} &&\text{otherwise} 
+\end{aligned}\right.$.
+ \item $\mathbb{N}_{D2}(X)=
+ \left\{\begin{aligned}
+ &\mathbf{1} &&\text{if} \ \  X<\mathbf{1}\\
+ &\mathbf{0} &&\text{otherwise}
+\end{aligned}\right.$.
+\end{enumerate}
+\end{example}
 
 \subsubsection{Representable Interval-valued Fuzzy Negations}
 
 A fuzzy negation with interval value is representable if, it is possible to obtain two fuzzy negations which when applied to extremes of the interval preserve the relation of order considered present in the lattice. The  principals concepts are presented the follow with base in the relation of order usual.
-\\
-\begin{definition}~\cite[Def. 4]{NEG1} $\mathbb{N}$ is called the \textbf{representable interval-valued fuzzy negation} if there exists fuzzy negations $N1$, $N2$ such that $\mathbb{N}(X) = [N_{1}(\overline{x}), N_{2}(\underline{x})]$. We say that $N_{1}$ , $N_{2}$ are the associate fuzzy negations with the given interval-valued fuzzy
-negation.
+
+\begin{definition}~\cite[Def. 4]{NEG1} $\mathbb{N}$ is called the \textbf{representable interval-valued fuzzy negation} if there exists fuzzy negations $N1$, $N2$ such that $\mathbb{N}(X) = [N_{1}(\overline{X}), N_{2}(\underline{X})]$. We say that $N_{1}$, $N_{2}$ are the associate fuzzy negations with the given interval-valued fuzzy negation.
 \end{definition}
 
-The following result links strong interval-valued fuzzy negations in the sense of representability with strong fuzzy negations.\\
+The following result links strong interval-valued fuzzy negations in the sense of representability with strong fuzzy negations. 
 
-\begin{theorem}~\cite{bedregal2010interval}
-Let $\mathbb{N}(X) = [N_{1}(\overline{x}), N_{2}(\underline{x})]$ be an involutive interval-valued fuzzy negation $([0, 1],\le)$ (not linear). Then $N_{1}$ and $N_{2}$ are strong fuzzy negations and $N_{1} \le N_{2}$.
-\end{theorem}
+By~\cite{bedregal2010interval},
+if $\mathbb{N}(X) = [N_{1}(\overline{X}), N_{2}(\underline{X})]$ is an involutive interval-valued fuzzy negation $(U,\le)$ (not linear), then $N_{1}$ and $N_{2}$ are strong fuzzy negations and $N_{1} \le N_{2}$.
+Case if $N_{1} = N_{2}$, then we obtain
+an involutive interval-valued fuzzy negation $(U,\le)$ (not linear) if and only if there exists a strong fuzzy negation $N$ such that $\mathbb{N}(X) = [N(\overline{X}), N(\underline{X})]$.
 
-If $N_{1} = N_{2}$ , then we obtain\\
+The proposition~\cite[Prop. 1]{NEG1} recalls an important result about the representation
+of involutive negators that says 
+if $\mathbb{N}$ is an interval-valued fuzzy negation with respect to $(U,\le)$ in $\mathbb{U}$, then $\le$ is not a total order.
+This representation is a special case of a more general result, showing that all anti-automorphisms of $\mathbb{U}$ are representable, but they do not preserve the total order in $\mathbb{U}$ because they have incomparable elements.
 
-\begin{theorem}~\cite{bedregal2010interval}\label{nth2}
-Let $\mathbb{N}$ be an involutive interval-valued fuzzy negation $([0, 1],\le)$ (not linear) if and only if there exists a strong fuzzy negations and $N$ such that $\mathbb{N}(X) = [N(\overline{x}), N(\underline{x})]$ .
-\end{theorem}
-The following proposition recalls an important result about the representation
-of involutive negators on $L^I$ which will be needed in the sequel:
-\\
-\begin{proposition}~\cite[Prop. 1]{NEG1} Let $N:I \rightarrow I$ be a strong negation. Let $\mathbb{N}: L^I \rightarrow L^I$ be the function defined by
-$\mathbb{N}(X) = [N(\overline{x}), N(\underline{x})]$ .
-If $\mathbb{N}$ is an interval-valued fuzzy negation with respect to $([0, 1],\le)$ in $L^I$, then $\le$ is not a total order.
-\end{proposition}
-
-This representation is a special case of a more general result, showing that all anti-automorphisms of $L^I$ are representable, but they do not preserve the total order in $L^I$ because they have incomparable elements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -690,7 +797,6 @@ Let $I$ be a fuzzy implication satisfying \emph{\textbf{I1}} and \emph{\textbf{I
 %\end{description}
 \end{proposition}
 
-\begin{proof} see TAL
 %For $\emph{\textbf{k}}=2-12$, see the
 %proof in~\cite[Corollary 22]{Bed10b}~\cite[Theorem
 %6.1]{Benja-scan-2006}. When $\emph{\textbf{k}}=13$ and
@@ -728,7 +834,6 @@ Let $I$ be a fuzzy implication satisfying \emph{\textbf{I1}} and \emph{\textbf{I
 
 %($\Leftarrow$) When $y \in Y$, by Property \textbf{I}13, $T(I(x,y),I(N(x),y)) \in Y$. Since $x\in X$, $y\in Y$ and $z\in Z$, $I(x,y) \in \widehat{I}(X,Y)$ and $I(x,z) \in \widehat{I}(X,Z)$. So, $y = T(I(x,y),I(N(x),y)) \in \widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$, which means $Y\hspace{-0.1cm}\subseteq\hspace{-0.1cm}\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))$.
 %Thus, $\widehat{T}(\widehat{I}(X,Y),\widehat{I}(X,Z))\hspace{-0.05cm}=\hspace{-0.05cm}Y$.
-\end{proof}
 
 
 \subsection{Main classes of interval implications}~\label{subsec_int_class}
@@ -751,9 +856,12 @@ Let $\II$ be an interval fuzzy implication.  $\II$ is an interval S-implication 
 Let $S$ be a t-conorm, $T$ be a t-norm and $N$ be a strong fuzzy
 negation. If $S$ and $T$  are continuous,
 
-$\II_{\widehat{S},\widehat{N},\widehat{T}}\hspace{-0.05cm}=
-\hspace{-0.05cm}\widehat{I_{S,N,T}}\hspace{-0.05cm}=\hspace{-0.05cm} [I_{S,N,T}(S(N(\overline{X})\hspace{-0.05cm},\hspace{-0.05cm}T(\underline{X},\underline{Y}))\hspace{-0.05cm},\hspace{-0.05cm} I_{S,N,T}(S(N(\underline{X})\hspace{-0.05cm},\hspace{-0.05cm}T(\overline{X},\overline{Y}))]$.
+\scalebox{0.75}{
+$\II_{\widehat{S},\widehat{N},\widehat{T}}=\widehat{I_{S,N,T}}=[I_{S,N,T}(S(N(\overline{X}),T(\underline{X},\underline{Y})), I_{S,N,T}(S(N(\underline{X}),T(\overline{X},\overline{Y}))]$.}
+
 \end{theorem}
+
+
 
 \begin{proposition}\label{pro-int-QLimp-prop}
 Let $\II$ be an interval fuzzy implication. If $\II$ is an
@@ -789,20 +897,20 @@ $\II_{\widehat{S},\widehat{N},\widehat{T}}=\widehat{I_{S,N,T}}$.
 \end{theorem}
 
 %\prova{ Let $X,Y\in \UU$, then
-\prova{ See \cite{re}
+%\prova{ See \cite{re}
 
-\hspace{-.5cm}{\small $\begin{array}{ll}
-\II_{\widehat{S},\widehat{N},\widehat{T}}(X,Y) & =
-\widehat{S}(\widehat{N}(X),\widehat{T}(X,Y)) \\
-& = \widehat{S}([N(\overline{X}),N(\underline{X})],[T(\underline{X},\underline{Y}), T(\overline{X},\overline{Y})) \\
-& = [S(N(\overline{X}), T(\underline{X},\underline{Y})), S(N(\underline{X}),T(\overline{X},\overline{Y}))] \\
-& =
-I_{S,N,T}(\underline{X},\underline{Y}),I_{S,N,T}(\overline{X},\overline{Y})]
-\\ & = \widehat{I_{S,N,T}}(X,Y).
-\end{array}$}
+%\hspace{-.5cm}{\small $\begin{array}{ll}
+%\II_{\widehat{S},\widehat{N},\widehat{T}}(X,Y) & =
+%\widehat{S}(\widehat{N}(X),\widehat{T}(X,Y)) \\
+%& = \widehat{S}([N(\overline{X}),N(\underline{X})],[T(\underline{X},%\underline{Y}), T(\overline{X},\overline{Y})) \\
+%& = [S(N(\overline{X}), T(\underline{X},\underline{Y})), %S(N(\underline{X}),T(\overline{X},\overline{Y}))] \\
+%& =
+%I_{S,N,T}(\underline{X},\underline{Y}),I_{S,N,T}(\overline{X},\overline{Y})]
+%\\ & = \widehat{I_{S,N,T}}(X,Y).
+%\end{array}$}
 
 %\vspace{-.5cm}
-}
+%}
 
 \begin{proposition}\label{pro-int-QLimp-prop2}
 Let $\II$ be an interval fuzzy implication. If $\II$ is an
@@ -963,6 +1071,47 @@ S_M(\overline{X}, \overline{Y})]$.
 %\end{proof}
 
 
+%IV implication representability
+
+
+\begin{table*}[]
+\centering
+\caption{IV implication representability}
+\label{tab:IVImplicationTable}
+\begin{tabular}{l}
+\textbf{Representability in $\mathbb{U}$}  %\mathbb{I}_{\mathbb{S}, \mathbb{N}, \mathbb{T}} 
+\\ 
+\hline  
+
+ \begin{equation}\label{eq:t-representable}
+\mathbb{I}^*_{\mathbb{S}_{\mathbb{S}_{1} \mathbb{S}_{2}},\mathbb{N}_\mathbb{N},\mathbb{T}_{\mathbb{T}_{1} \mathbb{T}_{2}}} = [\mathbb{S}_1 (N(\overline{X}), T_1(\underline{X}, \underline{Y})), 
+\mathbb{S}_2 (N(\underline{X}), T_2(\overline{X}, \overline{Y}))]
+\end{equation}
+\\
+
+\begin{equation}\label{eq:pseudo-t-representable}
+\mathbb{I}^*_{\mathbb{S}_{S},\mathbb{N}_N,\mathbb{T}_T} = 
+[min(S(N(\overline{X}), T(\underline{X}, \underline{Y})), S(N(\underline{X}, max(T(\underline{X}, \overline{Y}), T(\overline{X}, \underline{Y}))))), S(N(\overline{X}, max(T(\underline{X}, \underline{Y}), T(\overline{X}, \underline{Y}))))
+]
+\end{equation}
+\\
+
+\begin{equation}\label{eq:non-t-representable}
+\mathbb{I}^{'}_{\mathbb{S}_{S},\mathbb{N}_N,\mathbb{T}_T} = 
+[S(N(\overline{X}), T(\overline{X}, \overline{Y})), max(S(N(\underline{X}, T(\overline{X}, \overline{Y})), S(\overline{X}), min(T(\underline{X}, \overline{Y}), T(\overline{X}, \underline{Y}))))
+]
+%Acrescentar a questão do t != 1
+\end{equation}
+\\
+
+\begin{equation}\label{eq:not-t-representable}
+\mathbb{I}^{'}_{\mathbb{S}_{t},\mathbb{N},\mathbb{T}_t} = 
+[min(S(t, S(N(\overline{X}, T(\underline{X}, \underline{Y})))))
+]
+\end{equation}
+
+\end{tabular}
+\end{table*}
 
 
 \section{Automorphisms on $\UU$ (Sérgio)}
@@ -1040,7 +1189,7 @@ Consider $\varrho:\UU\rightarrow \UU$. $\varrho$ is  an interval
 automorphism iff $\varrho$ is Moore-continuous, strictly
 increasing function such that
 \begin{equation}\label{eq-extrem-auto}
-\varrho([0,0])=[0,0] = \varrho^{-1}([0,0]) \mbox{\,\,\, and \,\,\,} \varrho([1,1])=[1,1]=\rho^{-1}([1,1]).
+\varrho(\textbf{0})=\textbf{0} = \varrho^{-1}(\textbf{0}) \mbox{\,\,\, and \,\,\,} \varrho(\textbf{1})=\textbf{1}=\rho^{-1}(\textbf{1}).
 \end{equation}
 \end{proposition}
 %%%%%%%%%
@@ -1091,351 +1240,9 @@ these two element~\cite{Ngu06}.
 %Following previous work related to well-studied fuzzy implications, the ones with explicit representations ($S$-implications, $QL$-implications) and implicit representation ($R$-implications) in terms of fuzzy connectives,
 This work investigates the interval Yager's classes implications, in the approach of an axiomatic representation to fuzzy implications.  We study the interval $f$- and $g$-generator, which is related to the type of interval additive generator used to represent interval t-norm and interval t-conorms, respectively (see~\cite{BDSR11}). Thus, the interval $f$- and $g$-generated implications derived from corresponding interval $f$- and $g$-generator are considered. Based on the canonical representation, our task has undertaken the discussion of the canonical interval representation of  Yager implication, emphasizing similar and extra properties of related main classes of interval fuzzy implications. Such discussion contributes to obtain of alternative approaches to generate interval fuzzy implication considering both the correctness and the optimality criteria. Further work is focused on the study the interval-valued intuitionistic Yager's classes implications.\vspace{-0.5cm}
 
-\begin{thebibliography}{8}
-{\small
-
-%\bibitem{Ale83} G. Alefeld and J. Herzberger, {\it Introduction to Interval
-%Computations}, NY: Academic Press, 1983.
-
-%\bibitem{Bac04} M. Baczynski, Residual Implications Revisited, Notes on the Smets-Magrez,
-%{\it Fuzzy Sets and Systs.}, {\bf 145} (2) (2004),
-%267--277.
-
-%\bibitem{BJ07} M. Baczynski and B. Jayaram, On the characterization of ({S},{N})-implications,
-%{\it Fuzzy Sets and Systs.}, {\bf 158} (2007),
-%1713--1727.
-
-\bibitem{BJ08} M. Baczynski and B. Jayaram, \emph{Fuzzy implications}, Studies in
-Fuzziness and Soft Computing, Vol. {\bf231}, Springer, Berlin-Heidelberg, 2008.
-
-
-%\bibitem{BW96} B. De Baets and B. Walle, Weak and strong interval orders,
-%\emph{Fuzzy Sets and Systs.}, {\bf 179} (1996), 213--225.
-%
-\bibitem{Bal06} J. Balasubramaniam, Contrapositive symmetrization of fuzzy implications - Revisited,
-\emph{Fuzzy Sets and Systs.}, {\bf 157} (2006), 2291--2310.
-
-%\bibitem{Bal08} J.\hspace{-0.05cm}Balasubramaniam,\hspace{-0.08cm} {\small On\hspace{-0.01cm}the\hspace{-0.01cm}law\hspace{-0.01cm} of\hspace{-0.01cm}Importantion{\small\hspace{-0.1cm}} $(\hspace{-0.05cm}x\hspace{-0.05cm}\wedge\hspace{-0.05cm}y)\hspace{-0.1cm}\rightarrow \hspace{-0.1cm}z\hspace{-0.1cm}\equiv\hspace{-0.1cm}(x\hspace{-0.1cm}\rightarrow \hspace{-0.1cm}(\hspace{-0.05cm}y\hspace{-0.05cm}\rightarrow\hspace{-0.05cm}z)\hspace{-0.05cm})$} in Fuzzy Logic,
-%\emph{IEEE Trans. on Fuzzy Systs.}, {\bf 16}(1) (2008), 130--144.
-
-\bibitem{BAL07}
-J. Balasubramaniam,  Yager's new class of implications ${J}_f$ and some classical
-  tautologies, \emph{Information Sciences}, \textbf{177}(3) (2007), 930--946.
-
-%\bibitem{Bed10a}
-%B. C. Bedregal, On interval fuzzy negations, \emph{Fuzzy Sets
-%and Systs.}, {\bf 161} (2010), 2290 -- 2313.
-
-\bibitem{Bed10b}
-B.C. Bedregal, G.P. Dimuro, R.H.N. Santiago and R.H.S. Reiser, On
-interval fuzzy {S}-implications, \emph{Information Sciences},
-\textbf{180}(8) (2010), 1373--1389.
-
-\bibitem{BRD09} B. Bedregal, R.H.S. Reiser and G.P. Dimuro,
-Xor-Implications and E-Implications: Classes of Fuzzy Implications
-Based on Fuzzy Xor. \emph{Elec. Notes in Theoretical Computer
-Science}, {\bf 247} (2009), 5 -- 18.
-
-%\bibitem{Benja-scan-2006} B. C. Bedregal and R. H. N. Santiago and R. H. S. Reiser and G. P. Dimuro,
-%Analyzing Properties of Fuzzy Implications Obtained via the Interval Constructor, 12th GAMM - IMACS International Symposium on Scientific Computing, Computer Arithmetic and Validated Numerics, 26-29 September, Duisburg, 2006, SCAN 2006 Conference Post-Proceedings,2007, IEEE Computer Society, Los Alamitos, 13.
-
-\bibitem{BDR09} B.C. Bedregal, G.P. Dimuro and R.H.S. Reiser, An
-approach to interval-valued R-implications and automorphisms. In
-\emph{IFSA/EUSFLAT}, pp. 1--6, Lisboa, 2009.
-
-\bibitem{BDSR10}
-B.C. Bedregal, G.P. Dimuro, R.H.N. Santiago, R.H.S. Reiser, On
-interval fuzzy {S}-implications, \emph{Information Science},
-\textbf{180} (2010) 1373--1389.
-
-\bibitem{BT06a} B.C. Bedregal and A. Takahashi,
-The Best Interval Rep. of T-Norms and Automorphisms,
-{\it Fuzzy Sets and Systs.}, \textbf{157}(24)(2004),3220--3230.
-
-\bibitem{BT06b} B.C. Bedregal and A. Takahashi,
-Interval Valued Versions of T-Conorms, Fuzzy Negations and Fuzzy
-Implications, \emph{IEEE Intl. Conf. on Fuzzy Systs.}, Vancouver,
-2006, pp. 1981--1987.
-
-%\bibitem{BBF07} U. Bodenhofer, B. De Baets and J. C. Fodor,
-%A compendium of fuzzy weak orders: Representations and
-%constructions, \emph{Fuzzy Sets and Systs.}, {\bf 158} (8)
-%(2007), 811--829.
-
-%\bibitem{BUS00} H. Bustince, Indicator of inclusion grade for interval\-valued fuzzy sets.
-%Application to approximative reasoning based on interval-valued
-%fuzzy sets, \emph{International Jornal of Approximate Reasoning},
-%{\bf 23} (2000), 137-- 209.
-
-%\bibitem{BBM04} H. Bustince, E. Barrenechea and V. Mohedano,
-%Intuitionistic fuzzy implication operators, an expression and main
-%properties, \emph{Intl. Journal of Unc. Fuzziness
-%Knowledge Based Systs.}, {\bf 12} (2004), 387
-%--406.
-
-%\bibitem{BP08} H. Bustince, E. Barrenechea, M. Pagola,  Generation of interval-valued fuzzy and atanassov's
-%intuitionistic fuzzy connectives from fuzzy connectives and from
-%{K} $\alpha$ operators: Laws for conjunctions and disjunctions,
-%amplitude, \emph{Intl. Journal of Intelligent Systs.},
-%\textbf{23} (6) (2008), 680--714.
-
-\bibitem{BBS03} H. Bustince, P. Burillo, and F. Soria, Automorphism, Negations and Implication Operators,
-{\it Fuzzy Sets and Systs.}, \textbf{134} (2003),
-209--229.
-
-%\bibitem{CB04} R. Callejas-Bedregal and B.R.C. Bedregal,
-%Intervals as a Domain Constructor, {\it TEMA}, \textbf{2} (1) (2001),
-%43--52.
-
-%\bibitem{CDK03} C. Cornelis, G. Deschrijver,  E. E. Kerre, Implication in intuitionistic fuzzy and interval-valued
-%fuzzy set theory: construction, classification, application,
-%\emph{International Journal of Approximate Reasoning}, {\bf 35}
-%(2004), 55--95.
-%
-%\bibitem{DK03} G. Deschrijver,  E. E. Kerre, On the relationship between some extensions of fuzzy set theory,
-%\emph{Fuzzy Sets and Systs.}, {\bf 133} (2) (2003), 225 --
-%235.
-%
-%\bibitem{CDK06} G. Cornelis, G. Deschrijver, E.E. Kerre, Advances and
-%Challenges in Interval-Valued Fuzzy Logic, {\it Fuzzy Sets and
-%Systs.}, \textbf{157} (2006), 622--627.
-
-%\bibitem{GK05} G. Deschrijver and E. Kerre, Implicators based on binary aggregation operators in
-%interval-valued fuzzy set theory, \emph{Fuzzy Sets and Systs.} \textbf{153} (2005), 229-248.
-%
-\bibitem{Des08} G. Deschrijver, A representation of t-norms in interval-valued $L-$fuzzy set theory,
-\newblock {\em Fuzzy Sets and Systs.}, \textbf{159}(13)(2008), 1597--1618.
-
-\bibitem{BDSR11}
-G.P. Dimuro, B. Bedregal, R.H.N. Santiago and R.H.S. Reiser,
-Interval Additive  Generators of Interval T-Norms and Interval T-Conorms.
-Inf. Sci., \textbf{181}(18), pp. 3898-3916, 2011.
-
-
-%\bibitem{DP91} D. Dubois, H. Prade, Random sets and fuzzy interval analysis, \emph{Fuzzy Sets and Systs.},
-%{\bf 42} (1) (1991), 87 -- 101.
-
-%\bibitem{Dubois00}
-%D. Dubois and H.  Prade, Fundamentals of Fuzzy Theory: The
-%handbooks of fuzzy sets series, Ed. Didier Dubois and Henri Prade,
-%Dordrecht: Kluwer Academic Publishers, (2000) 21--106.
-
-%\bibitem{DuOsPr00} D. Dubois and W. Ostasiewicz and Henri Prade, Fuzzy sets: History and basic notions,
-%The Handbooks of Fuzzy Sets Series: Fundamentals of Fuzzy Sets, Eds. Didier Dubois and Henri Prade, Boston:Kluwer Academic Publishers (2000),  21--124.
-%
-%
-%\bibitem{Dubois05} D. Dubois, H.  Prade, Interval-valued fuzzy sets, possibility theory and
-%imprecise probability, in Proceedings of the ``International Conference on Fuzzy Logic and Technology'',  pp.
-% 314-319, Barcelona, 2005.
-%
-%\bibitem{Dubois2009} D. Dubois and H. Prade and S. Sessa, Recent Literature: Collected by Didier Dubois, Henri Prade and Salvatore Sessa, emph{Fuzzy Sets and Systs.}, {\bf 160} No.2 (2009), 2032--2048.
-
-\bibitem{Duj95}  Ch. Dujet and N. Vincent, Force Implication: {A} New Approach to Human Reasoning,
-\emph{Fuzzy Sets and Systs.}, \textbf{69} (1) (1995),
-53--63.
-
-%\bibitem{Fod91} J.C. Fodor, On fuzzy implication operators, \emph{Fuzzy Sets and Systs.}, \textbf{42} (1991),
-%293--300.
-%
-\bibitem{FR94} J. Fodor and M. Roubens, Fuzzy Preference Modelling and Multicriteria Decision Support, Kluwer Academic Publisher, Dordrecht, 1994.
-
-%\bibitem{Gasse08} B. Van Gasse, C. Cornelis, G. Deschrijver and E. Kerre,
-%A characterization of interval valued residuated lattices,
-%\emph{International Journal of Approximate Reasoning} {\bf 49} (2)
-%(2008), 478 -- 487.
-
-%\bibitem{Goguen67} J. Goguen, $L-$ fuzzy sets, \emph{Journal of Mathematical Analysis and Appls.},
-%{\bf 18} (1) (1967), 145 - 174.
-%
-%\bibitem{Grattan-Guiness75} I.~Grattan-Guiness, Fuzzy membership mapped onto interval and
-%many-valued  quantities, \emph{Z. Math. Logik. Grundladen Math.}
-%\textbf{22} (1975) 149--160.
-
-\bibitem{GWW96b}
-M. Gehrke, C. Walker and E. Walker, Some comments on interval
-valued fuzzy sets, \emph{Intl. Journal of Intelligent Systems},
-\textbf{11} (1996) 751--759.
-
-\bibitem{GWW98}
-M. Gehrke, C. Walker  and  E. Walker, Algebraic aspects of fuzzy
-sets and fuzzy logics, \emph{Proc. of Work. on Current Trends and
-Development in Fuzzy Logic}, (1998), 101--170.
-
-\bibitem{Hic01} T. Hickey, Q. Ju and M. Emdem, Interval arithmetic: from principles to implementation,
-\emph{Journal of the {ACM}} \textbf{48}(5) (2001), 1038--1068.
-
-\bibitem{keafort} R. Keafort,  V.~Kreinovich (eds.), ``Applications of Interval Computations'',
-Kluwer, Boston, 1996.
-
-%\bibitem{KY95} G.J. Klir. B. Yuan, Fuzzy Sets and Fuzzy Logics: Theory and Applications, Prentice Hall, 1995.
-
-%\bibitem{Kreinovich08} C. Hu, R. Kearfott, A. de Korvin and V. Kreinovich, Knowledge Processing with
-%Interval and Soft Computing, London: Springer Verlag, 2008.
-
-%\bibitem{GWW96b} M. Gehrke, C. Walker and E. Walker,  Some comments on interval valued fuzzy
-%sets, \emph{Intl. Journal of Intelligent Systs.} \textbf{11} (1996), 751--759.
-%
-\bibitem{Lod02}
-W. Lodwick, Reliable Computing: Special Issue on the Linkages
-between Interval Mathematics and Fuzzy Set Theory, \emph{Reliable
-Computing}, {\bf 8} (1) (2002), 95 --98.
-
-%\bibitem{Lod04}
-%W. Lodwick, Preface, {\it Reliable Computing}, {\bf 10} (4)
-%(2004), 247--248.
-
-%\bibitem{Lod09}
-%W. Lodwick, The Relationship between Interval, Fuzzy and Possibilistic Optimization,
-%Modeling Decisions for Artificial Intelligence, in ``Proceedings of the 6th International Conference'' (Vicen{\c c} Torra and Yasuo Narukawa and Masahiro Inuiguchi eds.), Lecture Notes in Computer Science, Vol. 861, pp. 55--59 pp., Springer Verlag, Berlin, 2009.
-
-%\bibitem{KM81} U.~Kulisch and W.~Miranker, ``Computer Arithmetic in Theory and Practice'', Academic Press, 1981.
-
-%\bibitem{Mas06}
-%M. Mas, M. Monserrat and J. Torrens, QL-implications versus D-implications, \emph{Kybernetika}, \textbf{42}(3) (2006) 351--366.
-%
-%\bibitem{Mas07}
-%M. Mas, M. Monserrat and J. Torrens, Two types of implications derived from uninorms, \emph{Fuzzy Sets and Systs.}
-% \textbf{158}(3) (2007), 2612--2626.
-
-\bibitem{Mas07a}
-M. Mas, M. Monserrat and E. Trillas, A survey on fuzzy implication functions,
-\emph{IEEE Trans. on Fuzzy Systs.} \textbf{15}(6) (2007), 1107--1121.
-
-\bibitem{MassanetT11} S. Massanet and J. Torrens, On a new class of fuzzy implications: H-Implications
-		 and generalizations, \emph{Inf. Sci.},\hspace{-0.1cm}\textbf{181}(11) \hspace{-0.05cm}(2011),\hspace{-0.05cm} 2111--2127.
-
-%\bibitem{Mas06}
-%M. Mas, M. Monserrat and J. Torrens, QL-implications versus
-%D-implications, \emph{Kybernetika}, \textbf{42} (3) (2006),
-%351--366.
-
-%\bibitem{Mas07}
-%M. Mas, M. Monserrat and J. Torrens, Two types of implications
-%derived from uninorms, \emph{Fuzzy Sets and Systs.}, \textbf{158}
-%(3) (2007),  2612--2626.
-
-%\bibitem{Mendel2001} J.~M. Mendel, ``Uncertain Rule-Based Fuzzy Logic Systs.: Introduction and New
-%  Directions''. \newblock Prentice Hall, Upper Saddle River, 2001.
-%
-%\bibitem{Mendel07} J. M. Mendel, Advances in Type-2 Fuzzy Sets and Systs., {\em Information Sciences}, {\bf 177} (1) (2007), 14--110.
-
-
-%\bibitem{Mitra05} S. Mitra, S. K. Pal, Fuzzy Sets in Pattern Recognition and Machine Intelligence, \emph{Fuzzy Sets
-%and Systs.}, \textbf{156} (2005), 381--386.
-
-%\bibitem{Moo62}
-%R. E. Moore, Interval Arithmetic and Automatic Error Analysis in Digital Computing, Stanford University, Stanford, 1962.
-
-\bibitem{Moo79}
-R. Moore, \emph{Methods and Applications of Interval Analysis}, Philadelphia: SIAM Press, 1979.
-
-\bibitem{Moo03}
-R. Moore, W. Lodwick, Interval analysis and fuzzy set theory, {\em
-Fuzzy Sets and Systs.}, {\bf 135} (1) (2003),
-5--9.
-
-\bibitem{Ngu06} H. T. Nguyen and E. A. Walker, A first course in
-fuzzy logic, Chapman \& Hall/CRC, 2006.
-
-
-%\bibitem{NKZ97} H.T. Nguyen,  V. Kreinovich, Q. Zuo, Interval-valued degrees of
-%belief: applications of interval computations to expert Systs.
-%and intelligent control,  \emph{International Journal of
-%Uncertainty, Fuzziness, and Knowledge-Based Systs.} \textbf{5}
-%(3) (1997), 317--358.
-%
-%\bibitem{Ped02}
-%Pedrycz, W. and G.~Succi, f{XOR} fuzzy logic networks, \emph{Soft
-%Computing}
-%  \textbf{7} (2002), 115--120.
-
-\bibitem{Rei07}
-R.H.S. Reiser, G.P. Dimuro, B.C. Bedregal and R.H.N. Santiago, Interval valued {QL}-implications, in Wollic (D. Leivant and R.  Queiroz, eds.),  LNCS, Vol. 4576, pp. 307--321, Springer, Berlim,
-2007.
-
-%\bibitem{Reiser08} R.H.S. Reiser, G.P. Dimuro,  B.R.C. Bedregal,  H. Santos and R.C. Bedregal,
-%S-implications on bounded lattices and the interval constructor,
-%\emph{TEMA} \textbf{9} (1) (2008),  143--154.
-
-\bibitem{Reiser-tema2009} R.H.S. Reiser, B.C. Bedregal, R.H.C. Santiago and G.P. Dimuro,
-Interval Valued {D}-implications, \emph{TEMA} \textbf{10} (1)
-(2009), 63--74.
-
-%\bibitem{RK09} I. Robandi, B. KharismaDesign of Interval Type$-2$ Fuzzy Logic Based Power System Stabilizer,
-%\emph{International Journal of Electrical Power and Energy Systs.
-%Engineering}, {\bf 2} (2) (2009), 73 -- 80.
-%
-%\bibitem{RK93}
-% D. Ruan and E. Kerre, Fuzzy implication operators and generalized fuzzy methods of cases,
-% \emph{Fuzzy Sets and Systs.}, \textbf{54} (1993),  23--37.
-
- \bibitem{SBA06}
-R.H.N. Santiago, B.C. Bedregal and  B. Aci\'oly, Formal aspects of correctness and optimality in interval
-  computations, \emph{Formal Aspects of Computing}, \textbf{18} (2) (2006),  231--243.
-
-% \bibitem{Sambuc75}
-%R.~Sambuc, ``Fonctions $\phi$-floues. Application l'aide au Diagnostic en
-%  Pathologie Thyroidienne'', Ph.D. thesis, Univ. Marseille, Marseille, 1975.
-
-\bibitem{SHI08}
-Y.~Shi, B.Van Gasse, D.~Ruan and E. Kerre, On the first place
-anti\-tonicity in QL-implications,\hspace{-0.1cm} \emph{Fuzzy Sets and Sys.}
-\textbf{159}\hspace{-0.1cm}(2008),\hspace{-0.1cm} 2998--3013.
-
-%\bibitem{Tur95} I. Turksen, Fuzzy normal forms, \emph{Fuzzy Sets and Systs.} \textbf{69} (1995)
-% 319--346.
-
-\bibitem{TurKrei98}
-I. Turksen, V. Kreinovich and R. Yager, A new class of implications. Axioms of fuzzy implications revisited, \emph{Fuzzy Sets and Systs.}\textbf{100} (1998) 267--272.
-
-%\bibitem{Vandierendonck}
-%Vandierendonck, H., P.~Manet and J.~D. Legat, \emph{Application-specific
-%  reconfigurable {XOR}-indexing to eliminate cache conflict misses}, in:
-%  \emph{Proc. of the conference on Design, automation and test in Europe}
-%  (2006), pp. 357--362.
-
-
-\bibitem{Yag04}
-R. Yager, On some new classes of implication operators and their role in
-  approximate reasoning, \emph{Information Sciences}, \textbf{167} (2004),  193--216.
-
-\bibitem{Yag08} R. Yager, Level sets and the extension principle for interval
-valued fuzzy sets and its application to uncertainty measures,
- \emph{Information Sciences} \textbf{178} (18) (2008), 3565--3576.
-
-\bibitem{Zad65}
-L.A. Zadeh, Fuzzy sets, \emph{Information and Control}, \textbf{8} (1965),  338--353.
-
-
-\bibitem{Zad75}
-L.A. Zadeh, The concept of a linguistic variable and its application to
-  approximate reasoning - {I}, \emph{Information Sciences}, \textbf{6} (1975),  199--249.}
-
-\bibitem{cit:SHI07} Y. Shi, D. Ruan and E.E. Kerre,``On the characterizations of fuzzy implications
-satisfying $I(x,y)=I(x,I(x,y))$'', {\it Information Sciences},
-2007.
-
-\bibitem{NEG1}
-author = {Deschrijver, Glad and Cornelis, Chris},
-year = {2007},
-month = {06},
-pages = {345-361},
-title = {Representability in Interval-Valued Fuzzy Set Theory.},
-volume = {15},
-journal = {International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems}
-
-\bibitem{bedregal2010interval}
-  title={On interval fuzzy S-implications},
-  author={Bedregal, Benjam{\'\i}n Callejas and Dimuro, Gra{\c{c}}aliz Pereira and Santiago, Regivan Hugo Nunes and Reiser, Renata Hax Sander},
-  journal={Information Sciences},
-  volume={180},
-  number={8},
-  pages={1373--1389},
-  year={2010},
-  publisher={Elsevier}
-
-
-\end{thebibliography}
+\vspace{-1mm}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEE} %IEEEexample
 
 %\medskip
 %% The data information below will be filled by AIMS editorial staff
